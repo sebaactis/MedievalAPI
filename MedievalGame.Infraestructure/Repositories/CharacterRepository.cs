@@ -18,10 +18,20 @@ namespace MedievalGame.Infraestructure.Repositories
             => _context = context;
 
         public async Task<Character?> GetByIdAsync(Guid id)
-            => await _context.Characters.FindAsync(id);
+        {
+            return await _context.Characters
+                .Include(c => c.Weapons)
+                .Include(c => c.Items)
+                .FirstOrDefaultAsync(c => c.Id == id);
+        }
 
         public async Task<List<Character>> GetAllAsync()
-            => await _context.Characters.ToListAsync();
+        {
+            return await _context.Characters
+                .Include(c => c.Weapons)
+                .Include(c => c.Items)
+                .ToListAsync();
+        }
 
         public async Task<Guid> AddAsync(Character character)
         {

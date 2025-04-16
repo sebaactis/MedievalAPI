@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MedievalGame.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+295757212ec58beea00794c98c0f78613288e2d2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f85ee9409db1df2cbcbca541dff853ae03366469")]
 [assembly: System.Reflection.AssemblyProductAttribute("MedievalGame.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MedievalGame.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

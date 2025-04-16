@@ -1,4 +1,6 @@
-﻿using MedievalGame.Application.Features.Weapons.Dtos;
+﻿using MedievalGame.Application.Features.Items.Dtos;
+using MedievalGame.Application.Features.Weapons.Dtos;
+using MedievalGame.Domain.Entities;
 
 namespace MedievalGame.Application.Features.Characters.Dtos
 {
@@ -11,5 +13,6 @@ namespace MedievalGame.Application.Features.Characters.Dtos
         public int Defense { get; set; }
         public string Class { get; set; } 
         public List<WeaponDto>? Weapons { get; set; }
+        public List<ItemDto> Items { get; set; }
     }
 }
