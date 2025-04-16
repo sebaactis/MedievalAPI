@@ -15,3 +15,4 @@ D:\Descargas\Seba\Proyects\C#\MicroserviceProyect\MedievalGame\MedievalGame.Infr
 D:\Descargas\Seba\Proyects\C#\MicroserviceProyect\MedievalGame\MedievalGame.Infraestructure\obj\Debug\net9.0\MedievalGame.Infraestructure.pdb
 D:\Descargas\Seba\Proyects\C#\MicroserviceProyect\MedievalGame\MedievalGame.Infraestructure\obj\Debug\net9.0\MedievalGame.Infraestructure.genruntimeconfig.cache
 D:\Descargas\Seba\Proyects\C#\MicroserviceProyect\MedievalGame\MedievalGame.Infraestructure\obj\Debug\net9.0\ref\MedievalGame.Infraestructure.dll
+D:\Descargas\Seba\Proyects\C#\MicroserviceProyect\MedievalGame\MedievalGame.Infraestructure\obj\Debug\net9.0\MedievalGame.Infraestructure.sourcelink.json

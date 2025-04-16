@@ -5,10 +5,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Characters\Queries\" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="14.0.0" />
     <PackageReference Include="FluentValidation" Version="11.5.1" />
     <PackageReference Include="MediatR" Version="12.5.0" />
   </ItemGroup>

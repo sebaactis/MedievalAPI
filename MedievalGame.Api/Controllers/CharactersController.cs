@@ -1,23 +1,38 @@
 ﻿using MediatR;
+using MedievalGame.Api.Responses;
 using MedievalGame.Application.Features.Characters.Commands.CreateCharacter;
-using MedievalGame.Domain.Entities;
+using MedievalGame.Application.Features.Characters.Dtos;
+using MedievalGame.Application.Features.Characters.Queries.GetCharacters;
 using Microsoft.AspNetCore.Mvc;
 
-namespace MedievalGame.Api.Controllers
+[Route("api/characters/v1")]
+[ApiController]
+public class CharactersController : ControllerBase
 {
-    [ApiController]
-    [Route("api/characters/v1")]
-    public class CharactersController : ControllerBase
+    private readonly IMediator _mediator;
+
+    public CharactersController(IMediator mediator) => _mediator = mediator;
+
+    [HttpGet]
+    public async Task<ActionResult<ApiResponse<List<CharacterDto>>>> GetCharacters()
     {
-        private readonly IMediator _mediator;
+        var characters = await _mediator.Send(new GetCharacterQuery());
+        return ApiResponse<List<CharacterDto>>.SuccessResponse(
+            characters,
+            "Characters retrieved successfully",
+            StatusCodes.Status200OK
+        );
+    }
 
-        public CharactersController(IMediator mediator) => _mediator = mediator;
-
-        [HttpPost]
-        public async Task<IActionResult> CreateCharacter([FromBody] CreateCharacterCommand command)
-        {
-            var characterResponse = await _mediator.Send(command);
-            return Ok(characterResponse);
-        }
+    [HttpPost]
+    public async Task<ActionResult<ApiResponse<Guid>>> CreateCharacter(
+        [FromBody] CreateCharacterCommand command)
+    {
+        var characterId = await _mediator.Send(command);
+        return ApiResponse<Guid>.SuccessResponse(
+            characterId,
+            "Character created successfully",
+            StatusCodes.Status201Created
+        );
     }
 }

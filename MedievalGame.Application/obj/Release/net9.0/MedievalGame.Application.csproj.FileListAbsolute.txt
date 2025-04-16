@@ -1,0 +1,16 @@
+D:\Descargas\Seba\Proyects\C#\MicroserviceProyect\MedievalGame\MedievalGame.Application\bin\Release\net9.0\MedievalGame.Application.deps.json
+D:\Descargas\Seba\Proyects\C#\MicroserviceProyect\MedievalGame\MedievalGame.Application\bin\Release\net9.0\MedievalGame.Application.dll
+D:\Descargas\Seba\Proyects\C#\MicroserviceProyect\MedievalGame\MedievalGame.Application\bin\Release\net9.0\MedievalGame.Application.pdb
+D:\Descargas\Seba\Proyects\C#\MicroserviceProyect\MedievalGame\MedievalGame.Application\bin\Release\net9.0\MedievalGame.Domain.dll
+D:\Descargas\Seba\Proyects\C#\MicroserviceProyect\MedievalGame\MedievalGame.Application\bin\Release\net9.0\MedievalGame.Domain.pdb
+D:\Descargas\Seba\Proyects\C#\MicroserviceProyect\MedievalGame\MedievalGame.Application\obj\Release\net9.0\MedievalGame.Application.csproj.AssemblyReference.cache
+D:\Descargas\Seba\Proyects\C#\MicroserviceProyect\MedievalGame\MedievalGame.Application\obj\Release\net9.0\MedievalGame.Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\Descargas\Seba\Proyects\C#\MicroserviceProyect\MedievalGame\MedievalGame.Application\obj\Release\net9.0\MedievalGame.Application.AssemblyInfoInputs.cache
+D:\Descargas\Seba\Proyects\C#\MicroserviceProyect\MedievalGame\MedievalGame.Application\obj\Release\net9.0\MedievalGame.Application.AssemblyInfo.cs
+D:\Descargas\Seba\Proyects\C#\MicroserviceProyect\MedievalGame\MedievalGame.Application\obj\Release\net9.0\MedievalGame.Application.csproj.CoreCompileInputs.cache
+D:\Descargas\Seba\Proyects\C#\MicroserviceProyect\MedievalGame\MedievalGame.Application\obj\Release\net9.0\MedievalGame.Application.sourcelink.json
+D:\Descargas\Seba\Proyects\C#\MicroserviceProyect\MedievalGame\MedievalGame.Application\obj\Release\net9.0\Medieval.207A56C6.Up2Date
+D:\Descargas\Seba\Proyects\C#\MicroserviceProyect\MedievalGame\MedievalGame.Application\obj\Release\net9.0\MedievalGame.Application.dll
+D:\Descargas\Seba\Proyects\C#\MicroserviceProyect\MedievalGame\MedievalGame.Application\obj\Release\net9.0\refint\MedievalGame.Application.dll
+D:\Descargas\Seba\Proyects\C#\MicroserviceProyect\MedievalGame\MedievalGame.Application\obj\Release\net9.0\MedievalGame.Application.pdb
+D:\Descargas\Seba\Proyects\C#\MicroserviceProyect\MedievalGame\MedievalGame.Application\obj\Release\net9.0\ref\MedievalGame.Application.dll

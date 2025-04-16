@@ -169,7 +169,6 @@ D:\Descargas\Seba\Proyects\C#\MicroserviceProyect\MedievalGame\MedievalGame.Api\
 D:\Descargas\Seba\Proyects\C#\MicroserviceProyect\MedievalGame\MedievalGame.Api\obj\Debug\net9.0\staticwebassets\msbuild.buildMultiTargeting.MedievalGame.Api.props
 D:\Descargas\Seba\Proyects\C#\MicroserviceProyect\MedievalGame\MedievalGame.Api\obj\Debug\net9.0\staticwebassets\msbuild.buildTransitive.MedievalGame.Api.props
 D:\Descargas\Seba\Proyects\C#\MicroserviceProyect\MedievalGame\MedievalGame.Api\obj\Debug\net9.0\staticwebassets.pack.json
-D:\Descargas\Seba\Proyects\C#\MicroserviceProyect\MedievalGame\MedievalGame.Api\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
 D:\Descargas\Seba\Proyects\C#\MicroserviceProyect\MedievalGame\MedievalGame.Api\obj\Debug\net9.0\Medieval.9F7C8C0F.Up2Date
 D:\Descargas\Seba\Proyects\C#\MicroserviceProyect\MedievalGame\MedievalGame.Api\obj\Debug\net9.0\MedievalGame.Api.dll
 D:\Descargas\Seba\Proyects\C#\MicroserviceProyect\MedievalGame\MedievalGame.Api\obj\Debug\net9.0\refint\MedievalGame.Api.dll
@@ -177,3 +176,5 @@ D:\Descargas\Seba\Proyects\C#\MicroserviceProyect\MedievalGame\MedievalGame.Api\
 D:\Descargas\Seba\Proyects\C#\MicroserviceProyect\MedievalGame\MedievalGame.Api\obj\Debug\net9.0\MedievalGame.Api.genruntimeconfig.cache
 D:\Descargas\Seba\Proyects\C#\MicroserviceProyect\MedievalGame\MedievalGame.Api\obj\Debug\net9.0\ref\MedievalGame.Api.dll
 D:\Descargas\Seba\Proyects\C#\MicroserviceProyect\MedievalGame\MedievalGame.Api\obj\Debug\net9.0\MedievalGame.Api.sourcelink.json
+D:\Descargas\Seba\Proyects\C#\MicroserviceProyect\MedievalGame\MedievalGame.Api\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
+D:\Descargas\Seba\Proyects\C#\MicroserviceProyect\MedievalGame\MedievalGame.Api\bin\Debug\net9.0\AutoMapper.dll

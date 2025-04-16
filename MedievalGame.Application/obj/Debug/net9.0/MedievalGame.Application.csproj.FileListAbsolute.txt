@@ -13,3 +13,4 @@ D:\Descargas\Seba\Proyects\C#\MicroserviceProyect\MedievalGame\MedievalGame.Appl
 D:\Descargas\Seba\Proyects\C#\MicroserviceProyect\MedievalGame\MedievalGame.Application\obj\Debug\net9.0\refint\MedievalGame.Application.dll
 D:\Descargas\Seba\Proyects\C#\MicroserviceProyect\MedievalGame\MedievalGame.Application\obj\Debug\net9.0\MedievalGame.Application.pdb
 D:\Descargas\Seba\Proyects\C#\MicroserviceProyect\MedievalGame\MedievalGame.Application\obj\Debug\net9.0\ref\MedievalGame.Application.dll
+D:\Descargas\Seba\Proyects\C#\MicroserviceProyect\MedievalGame\MedievalGame.Application\obj\Debug\net9.0\MedievalGame.Application.sourcelink.json

@@ -30,7 +30,7 @@ namespace MedievalGame.Infraestructure.Data
                 entity.Property(e => e.Attack).IsRequired();
                 entity.Property(e => e.Defense).IsRequired();
                 entity.Property(e => e.Level).IsRequired();
-                entity.Property(e => e.Class).IsRequired();
+                entity.Property(e => e.Class).IsRequired().HasConversion<string>();
 
                 entity.HasMany(c => c.Weapons)
                        .WithOne(w => w.Character)
