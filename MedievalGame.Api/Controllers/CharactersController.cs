@@ -10,16 +10,13 @@ using Microsoft.AspNetCore.Mvc;
 
 [Route("api/characters/v1")]
 [ApiController]
-public class CharactersController : ControllerBase
+public class CharactersController(IMediator mediator) : ControllerBase
 {
-    private readonly IMediator _mediator;
-
-    public CharactersController(IMediator mediator) => _mediator = mediator;
 
     [HttpGet]
     public async Task<ActionResult<ApiResponse<List<CharacterDto>>>> GetCharacters()
     {
-        var characters = await _mediator.Send(new GetCharacterQuery());
+        var characters = await mediator.Send(new GetCharacterQuery());
         return ApiResponse<List<CharacterDto>>.SuccessResponse(
             characters,
             "Characters retrieved successfully",
@@ -30,7 +27,7 @@ public class CharactersController : ControllerBase
     [HttpGet("{id}")]
     public async Task<ActionResult<ApiResponse<CharacterDto>>> GetCharacterById(Guid id)
     {
-        var character = await _mediator.Send(new GetCharacterByIdQuery(id));
+        var character = await mediator.Send(new GetCharacterByIdQuery(id));
 
         return ApiResponse<CharacterDto>.SuccessResponse(
             character,
@@ -40,12 +37,12 @@ public class CharactersController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<ActionResult<ApiResponse<Guid>>> CreateCharacter(
+    public async Task<ActionResult<ApiResponse<CharacterDto>>> CreateCharacter(
         [FromBody] CreateCharacterCommand command)
     {
-        var characterId = await _mediator.Send(command);
-        return ApiResponse<Guid>.SuccessResponse(
-            characterId,
+        var character = await mediator.Send(command);
+        return ApiResponse<CharacterDto>.SuccessResponse(
+            character,
             "Character created successfully",
             StatusCodes.Status201Created
         );
@@ -58,7 +55,7 @@ public class CharactersController : ControllerBase
         if (id != command.Id)
             return ApiResponse<CharacterDto>.ErrorResponse("ID mismatch", StatusCodes.Status400BadRequest);
 
-        var characterUpdate = await _mediator.Send(command);
+        var characterUpdate = await mediator.Send(command);
         return ApiResponse<CharacterDto>.SuccessResponse(
                 characterUpdate,
                 "Character updated successfully",
@@ -69,7 +66,7 @@ public class CharactersController : ControllerBase
     [HttpDelete("{id}")]
     public async Task<ActionResult<ApiResponse<CharacterDto>>> DeleteCharacter(Guid id)
     {
-        var characterDeleted = await _mediator.Send(new DeleteCharacterCommand(id));
+        var characterDeleted = await mediator.Send(new DeleteCharacterCommand(id));
         return ApiResponse<CharacterDto>.SuccessResponse(
             characterDeleted,
             "Character deleted successfully",

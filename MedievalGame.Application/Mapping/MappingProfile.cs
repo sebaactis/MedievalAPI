@@ -12,16 +12,16 @@ namespace MedievalGame.Application.Mapping
         public MappingProfile()
         {
             CreateMap<Character, CharacterDto>()
-                .ForMember(dest => dest.Class, opt => opt.MapFrom(src => src.Class.ToString()))
+                .ForMember(dest => dest.Class, opt => opt.MapFrom(src => src.CharacterClass.Name))
                 .ForMember(dest => dest.Weapons, opt => opt.MapFrom(src => src.Weapons))
                 .ForMember(dest => dest.Items, opt => opt.MapFrom(src => src.Items));
 
             CreateMap<Weapon, WeaponDto>()
-                .ForMember(dest => dest.Type, opt => opt.MapFrom(src => src.Type.ToString()));
+                .ForMember(dest => dest.Type, opt => opt.MapFrom(src => src.WeaponType.Name));
 
             CreateMap<Item, ItemDto>()
-                .ForMember(dest => dest.Type, opt => opt.MapFrom(src => src.Type.ToString()))
-                .ForMember(dest => dest.Rarity, opt => opt.MapFrom(src => src.Rarity.ToString()));
+                .ForMember(dest => dest.Type, opt => opt.MapFrom(src => src.ItemType.Name))
+                .ForMember(dest => dest.Rarity, opt => opt.MapFrom(src => src.Rarity.Name));
 
             CreateMap<UpdateCharacterCommand, Character>()
                 .ForAllMembers(opts => opts.Condition((src, dest, srcMember) =>

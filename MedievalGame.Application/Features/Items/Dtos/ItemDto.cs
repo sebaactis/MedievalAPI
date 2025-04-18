@@ -1,5 +1,4 @@
 ﻿using MedievalGame.Domain.Entities;
-using MedievalGame.Domain.Enums;
 
 namespace MedievalGame.Application.Features.Items.Dtos
 {

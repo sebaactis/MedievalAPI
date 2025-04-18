@@ -6,7 +6,7 @@ namespace MedievalGame.Domain.Interfaces
     {
         Task<Character?> GetByIdAsync(Guid id);
         Task<List<Character>> GetAllAsync();
-        Task<Guid> AddAsync(Character character);
+        Task<Character> AddAsync(Character character);
         Task<Character> UpdateAsync(Character character);
         Task<Character> DeleteAsync(Guid id);
     }

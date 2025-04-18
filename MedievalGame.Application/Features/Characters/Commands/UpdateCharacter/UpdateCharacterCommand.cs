@@ -1,7 +1,6 @@
-﻿
-using MediatR;
+﻿using MediatR;
 using MedievalGame.Application.Features.Characters.Dtos;
-using MedievalGame.Domain.Enums;
+using MedievalGame.Domain.Entities;
 
 namespace MedievalGame.Application.Features.Characters.Commands.UpdateCharacter
 {
@@ -12,6 +11,6 @@ namespace MedievalGame.Application.Features.Characters.Commands.UpdateCharacter
             int? Attack,
             int? Defense,
             int? Level,
-            CharacterClass? Class
+            Guid? CharacterClassId
         ) : IRequest<CharacterDto>;
 }

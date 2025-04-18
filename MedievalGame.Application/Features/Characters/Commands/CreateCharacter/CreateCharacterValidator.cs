@@ -13,7 +13,7 @@ namespace MedievalGame.Application.Features.Characters.Commands.CreateCharacter
             RuleFor(x => x.Attack).NotEmpty().GreaterThan(0).WithMessage("Attack must be greater than 0.");
             RuleFor(x => x.Defense).NotEmpty();
             RuleFor(x => x.Level).NotEmpty();
-            RuleFor(x => x.Class).IsInEnum();
+            RuleFor(x => x.CharacterClassId).NotEmpty();
         }
     }
 }

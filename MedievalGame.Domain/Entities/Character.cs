@@ -1,11 +1,4 @@
-﻿using MedievalGame.Domain.Enums;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MedievalGame.Domain.Entities
+﻿namespace MedievalGame.Domain.Entities
 {
     public class Character
     {
@@ -15,7 +8,8 @@ namespace MedievalGame.Domain.Entities
         public int Attack { get; set; }
         public int Defense { get; set; }
         public int Level { get; set; }
-        public CharacterClass Class { get; set; }
+        public Guid CharacterClassId { get; set; }
+        public CharacterClass CharacterClass { get; set; } = null!;
         public List<Weapon> Weapons { get; set; }
         public List<Item> Items { get; set; }
     }

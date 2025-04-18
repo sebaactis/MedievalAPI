@@ -35,7 +35,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "MedievalGame.Api.Responses.ApiResponse\u00601[[System.Guid, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "Type": "MedievalGame.Api.Responses.ApiResponse\u00601[[MedievalGame.Application.Features.Characters.Dtos.CharacterDto, MedievalGame.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -119,6 +119,32 @@
     "ReturnTypes": [
       {
         "Type": "MedievalGame.Api.Responses.ApiResponse\u00601[[MedievalGame.Application.Features.Characters.Dtos.CharacterDto, MedievalGame.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "MedievalGame.Api.Controllers.WeaponController",
+    "Method": "CreateWeapon",
+    "RelativePath": "api/Weapon",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "command",
+        "Type": "MedievalGame.Application.Features.Weapons.Commands.CreateWeapon.CreateWeaponCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "MedievalGame.Api.Responses.ApiResponse\u00601[[MedievalGame.Application.Features.Weapons.Dtos.WeaponDto, MedievalGame.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",

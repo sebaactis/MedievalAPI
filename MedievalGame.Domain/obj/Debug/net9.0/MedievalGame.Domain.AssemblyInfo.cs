@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MedievalGame.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+295757212ec58beea00794c98c0f78613288e2d2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0c782d4951c74583d2d82e9b0ef8c30637e46c56")]
 [assembly: System.Reflection.AssemblyProductAttribute("MedievalGame.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MedievalGame.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

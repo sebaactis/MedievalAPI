@@ -1,5 +1,6 @@
 ﻿using MediatR;
-using MedievalGame.Domain.Enums;
+using MedievalGame.Application.Features.Characters.Dtos;
+using MedievalGame.Domain.Entities;
 
 namespace MedievalGame.Application.Features.Characters.Commands.CreateCharacter
 {
@@ -9,6 +10,6 @@ namespace MedievalGame.Application.Features.Characters.Commands.CreateCharacter
             int Attack,
             int Defense,
             int Level,
-            CharacterClass Class
-        ) : IRequest<Guid>;
+            Guid CharacterClassId
+        ) : IRequest<CharacterDto>;
 }

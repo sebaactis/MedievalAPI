@@ -10,7 +10,6 @@ namespace MedievalGame.Application.Features.Characters.Commands.UpdateCharacter
             RuleFor(x => x.Name).MaximumLength(20).WithMessage("Name cannot be empty and must be less than 20 characters.");
             RuleFor(x => x.Life).GreaterThan(0).WithMessage("Life must be greater than 0.");
             RuleFor(x => x.Attack).GreaterThan(0).WithMessage("Attack must be greater than 0.");
-            RuleFor(x => x.Class).IsInEnum();
         }
     }
 }

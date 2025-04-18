@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MedievalGame.Infraestructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f85ee9409db1df2cbcbca541dff853ae03366469")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0c782d4951c74583d2d82e9b0ef8c30637e46c56")]
 [assembly: System.Reflection.AssemblyProductAttribute("MedievalGame.Infraestructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MedievalGame.Infraestructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,6 +1,4 @@
-﻿using MedievalGame.Domain.Enums;
-
-namespace MedievalGame.Domain.Entities
+﻿namespace MedievalGame.Domain.Entities
 {
     public class Weapon
     {
@@ -8,9 +6,10 @@ namespace MedievalGame.Domain.Entities
         public string Name { get; set; } = string.Empty;
         public int AttackPower { get; set; }
         public int Durability { get; set; }
+        public Guid RarityId { get; set; }
         public Rarity Rarity { get; set; }
-        public WeaponType Type { get; set; }
-        public Guid CharacterId { get; set; }
-        public Character Character { get; set; } = null!;
+        public Guid WeaponTypeId { get; set; }
+        public WeaponType WeaponType { get; set; } = null!;
+        public List<Character> Characters { get; set; } = new();
     }
 }

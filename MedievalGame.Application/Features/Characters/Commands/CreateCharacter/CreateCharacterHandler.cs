@@ -1,19 +1,17 @@
 ﻿
+using AutoMapper;
 using FluentValidation;
 using MediatR;
+using MedievalGame.Application.Features.Characters.Dtos;
 using MedievalGame.Domain.Entities;
 using MedievalGame.Domain.Exceptions;
 using MedievalGame.Domain.Interfaces;
 
 namespace MedievalGame.Application.Features.Characters.Commands.CreateCharacter
 {
-    public class CreateCharacterHandler : IRequestHandler<CreateCharacterCommand, Guid>
+    public class CreateCharacterHandler(ICharacterRepository characterRepository, IMapper mapper) : IRequestHandler<CreateCharacterCommand, CharacterDto>
     {
-        private readonly ICharacterRepository _characterRepository;
-
-        public CreateCharacterHandler(ICharacterRepository characterRepository) => _characterRepository = characterRepository;
-
-        public async Task<Guid> Handle(CreateCharacterCommand request, CancellationToken ct)
+        public async Task<CharacterDto> Handle(CreateCharacterCommand request, CancellationToken ct)
         {
             try
             {
@@ -27,12 +25,13 @@ namespace MedievalGame.Application.Features.Characters.Commands.CreateCharacter
                     Life = request.Life,
                     Attack = request.Attack,
                     Defense = request.Defense,
-                    Class = request.Class,
+                    CharacterClassId = request.CharacterClassId,
                     Level = request.Level
                 };
 
-                await _characterRepository.AddAsync(character);
-                return character.Id;
+                await characterRepository.AddAsync(character);
+
+                return mapper.Map<CharacterDto>(character);
 
             }
             catch (ValidationException ex)
