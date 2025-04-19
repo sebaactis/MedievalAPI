@@ -153,5 +153,108 @@
         "StatusCode": 200
       }
     ]
+  },
+  {
+    "ContainingType": "MedievalGame.Api.Controllers.WeaponController",
+    "Method": "GetWeapons",
+    "RelativePath": "api/Weapon",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "MedievalGame.Api.Responses.ApiResponse\u00601[[System.Collections.Generic.List\u00601[[MedievalGame.Application.Features.Weapons.Dtos.WeaponDto, MedievalGame.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "MedievalGame.Api.Controllers.WeaponController",
+    "Method": "GetWeaponById",
+    "RelativePath": "api/Weapon/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "MedievalGame.Api.Responses.ApiResponse\u00601[[MedievalGame.Application.Features.Weapons.Dtos.WeaponDto, MedievalGame.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "MedievalGame.Api.Controllers.WeaponController",
+    "Method": "UpdateWeapon",
+    "RelativePath": "api/Weapon/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "command",
+        "Type": "MedievalGame.Application.Features.Weapons.Commands.UpdateWeapon.UpdateWeaponCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "MedievalGame.Api.Responses.ApiResponse\u00601[[MedievalGame.Application.Features.Weapons.Dtos.WeaponDto, MedievalGame.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "MedievalGame.Api.Controllers.WeaponController",
+    "Method": "DeleteCharacter",
+    "RelativePath": "api/Weapon/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "MedievalGame.Api.Responses.ApiResponse\u00601[[MedievalGame.Application.Features.Weapons.Dtos.WeaponDto, MedievalGame.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   }
 ]

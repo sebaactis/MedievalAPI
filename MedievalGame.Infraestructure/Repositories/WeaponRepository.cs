@@ -1,6 +1,7 @@
 ﻿using MedievalGame.Domain.Entities;
 using MedievalGame.Domain.Interfaces;
 using MedievalGame.Infraestructure.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace MedievalGame.Infraestructure.Repositories
 {
@@ -13,24 +14,47 @@ namespace MedievalGame.Infraestructure.Repositories
             return weapon;
         }
 
-        public Task<Weapon> DeleteAsync(int id)
+        public async Task<Weapon> DeleteAsync(Guid id)
         {
-            throw new NotImplementedException();
+            var weapon = await context.Weapons.FindAsync(id);
+            if (weapon != null)
+            {
+                context.Weapons.Remove(weapon);
+                await context.SaveChangesAsync();
+                return weapon;
+            }
+
+            return null;
         }
 
-        public Task<IEnumerable<Weapon>> GetAllAsync()
+        public async Task<IEnumerable<Weapon>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            return await context.Weapons
+                    .Include(w => w.Rarity)
+                    .Include(w => w.WeaponType)
+                    .ToListAsync();
         }
 
-        public Task<Weapon> GetByIdAsync(int id)
+        public async Task<Weapon?> GetByIdAsync(Guid id)
         {
-            throw new NotImplementedException();
+            return await context.Weapons
+                    .Include(w => w.Rarity)
+                    .Include(w => w.WeaponType)
+                    .FirstOrDefaultAsync(w => w.Id == id);
         }
 
-        public Task<Weapon> UpdateAsync(Weapon weapon)
+        public async Task<Weapon> UpdateAsync(Weapon weapon)
         {
-            throw new NotImplementedException();
+            var weaponFind = await context.Weapons.FindAsync(weapon.Id);
+
+            if (weaponFind != null)
+            {
+                context.Weapons.Update(weapon);
+                await context.SaveChangesAsync();
+                return weaponFind;
+            }
+
+            return null;
         }
     }
 }

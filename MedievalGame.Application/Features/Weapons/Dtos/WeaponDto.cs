@@ -11,6 +11,7 @@ namespace MedievalGame.Application.Features.Weapons.Dtos
         public Guid Id { get; set; }
         public string Name { get; set; }
         public int AttackPower { get; set; }
-        public string Type { get; set; }
+        public string Rarity { get; set; }
+        public string WeaponType { get; set; }
     }
 }
