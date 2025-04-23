@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using MedievalGame.Application.Features.Characters.Commands.UpdateCharacter;
 using MedievalGame.Application.Features.Characters.Dtos;
+using MedievalGame.Application.Features.Items.Commands.UpdateItem;
 using MedievalGame.Application.Features.Items.Dtos;
 using MedievalGame.Application.Features.Weapons.Commands.UpdateWeapon;
 using MedievalGame.Application.Features.Weapons.Dtos;
@@ -30,6 +31,10 @@ namespace MedievalGame.Application.Mapping
                     srcMember != null));
 
             CreateMap<UpdateWeaponCommand, Weapon>()
+                .ForAllMembers(opts => opts.Condition((src, dest, srcMember) =>
+                    srcMember != null));
+
+            CreateMap<UpdateItemCommand, Item>()
                 .ForAllMembers(opts => opts.Condition((src, dest, srcMember) =>
                     srcMember != null));
         }

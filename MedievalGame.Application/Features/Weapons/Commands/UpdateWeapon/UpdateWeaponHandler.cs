@@ -18,7 +18,7 @@ namespace MedievalGame.Application.Features.Weapons.Commands.UpdateWeapon
 
             if (weapon == null)
             {
-                throw new NotFoundException($"Character with ID {request.Id} not found.");
+                throw new NotFoundException($"Weapon with ID {request.Id} not found.");
             }
 
             mapper.Map(request, weapon);

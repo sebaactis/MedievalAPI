@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Descargas\\Seba\\Proyects\\C#\\MicroserviceProyect\\MedievalGame\\MedievalGame.Domain\\MedievalGame.Domain.csproj": {}
+    "D:\\Descargas\\Seba\\Proyects\\C#\\MedievalGame\\MedievalGame.Domain\\MedievalGame.Domain.csproj": {}
   },
   "projects": {
-    "D:\\Descargas\\Seba\\Proyects\\C#\\MicroserviceProyect\\MedievalGame\\MedievalGame.Domain\\MedievalGame.Domain.csproj": {
+    "D:\\Descargas\\Seba\\Proyects\\C#\\MedievalGame\\MedievalGame.Domain\\MedievalGame.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Descargas\\Seba\\Proyects\\C#\\MicroserviceProyect\\MedievalGame\\MedievalGame.Domain\\MedievalGame.Domain.csproj",
+        "projectUniqueName": "D:\\Descargas\\Seba\\Proyects\\C#\\MedievalGame\\MedievalGame.Domain\\MedievalGame.Domain.csproj",
         "projectName": "MedievalGame.Domain",
-        "projectPath": "D:\\Descargas\\Seba\\Proyects\\C#\\MicroserviceProyect\\MedievalGame\\MedievalGame.Domain\\MedievalGame.Domain.csproj",
+        "projectPath": "D:\\Descargas\\Seba\\Proyects\\C#\\MedievalGame\\MedievalGame.Domain\\MedievalGame.Domain.csproj",
         "packagesPath": "C:\\Users\\Seba\\.nuget\\packages\\",
-        "outputPath": "D:\\Descargas\\Seba\\Proyects\\C#\\MicroserviceProyect\\MedievalGame\\MedievalGame.Domain\\obj\\",
+        "outputPath": "D:\\Descargas\\Seba\\Proyects\\C#\\MedievalGame\\MedievalGame.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
