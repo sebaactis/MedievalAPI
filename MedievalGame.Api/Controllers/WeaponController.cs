@@ -1,9 +1,5 @@
 ﻿using MediatR;
 using MedievalGame.Api.Responses;
-using MedievalGame.Application.Features.Characters.Commands.DeleteCharacter;
-using MedievalGame.Application.Features.Characters.Commands.UpdateCharacter;
-using MedievalGame.Application.Features.Characters.Dtos;
-using MedievalGame.Application.Features.Characters.Queries.GetCharacters;
 using MedievalGame.Application.Features.Weapons.Commands.CreateWeapon;
 using MedievalGame.Application.Features.Weapons.Commands.DeleteWeapon;
 using MedievalGame.Application.Features.Weapons.Commands.UpdateWeapon;

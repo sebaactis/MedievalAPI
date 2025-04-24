@@ -12,7 +12,13 @@ namespace MedievalGame.Infraestructure.Repositories
         {
             return await context.Characters
                 .Include(c => c.Weapons)
+                    .ThenInclude(w => w.Rarity)
+                 .Include(c => c.Weapons)
+                    .ThenInclude(w => w.WeaponType)
                 .Include(c => c.Items)
+                    .ThenInclude(i => i.Rarity)
+                .Include(c => c.Items)
+                    .ThenInclude(i => i.ItemType)
                 .Include(c => c.CharacterClass)
                 .FirstOrDefaultAsync(c => c.Id == id);
         }
@@ -21,7 +27,13 @@ namespace MedievalGame.Infraestructure.Repositories
         {
             return await context.Characters
                 .Include(c => c.Weapons)
+                    .ThenInclude(w => w.Rarity)
+                .Include(c => c.Weapons)
+                    .ThenInclude(w => w.WeaponType)
                 .Include(c => c.Items)
+                    .ThenInclude(i => i.Rarity)
+                .Include(c => c.Items)
+                    .ThenInclude(i => i.ItemType)
                 .Include(c => c.CharacterClass)
                 .ToListAsync();
         }
@@ -37,7 +49,7 @@ namespace MedievalGame.Infraestructure.Repositories
         {
             var characterFind = await context.Characters.FindAsync(character.Id);
 
-            if(characterFind != null)
+            if (characterFind != null)
             {
                 context.Characters.Update(character);
                 await context.SaveChangesAsync();

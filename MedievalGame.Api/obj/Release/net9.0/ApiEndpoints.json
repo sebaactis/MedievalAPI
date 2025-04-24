@@ -129,6 +129,68 @@
     ]
   },
   {
+    "ContainingType": "MedievalGame.Api.Controllers.CharacterAssignationsController",
+    "Method": "AssignItemToCharacter",
+    "RelativePath": "api/characters/v1/assignment/{characterId}/assign-item/{itemId}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "characterId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "itemId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "MedievalGame.Api.Responses.ApiResponse\u00601[[MedievalGame.Application.Features.Characters.Dtos.CharacterDto, MedievalGame.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "MedievalGame.Api.Controllers.CharacterAssignationsController",
+    "Method": "AssignWeaponToCharacter",
+    "RelativePath": "api/characters/v1/assignment/{characterId}/assign-weapon/{weaponId}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "characterId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "weaponId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "MedievalGame.Api.Responses.ApiResponse\u00601[[MedievalGame.Application.Features.Characters.Dtos.CharacterDto, MedievalGame.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "MedievalGame.Api.Controllers.ItemController",
     "Method": "CreateItem",
     "RelativePath": "api/Item",

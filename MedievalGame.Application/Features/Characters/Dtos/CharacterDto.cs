@@ -1,6 +1,5 @@
 ﻿using MedievalGame.Application.Features.Items.Dtos;
 using MedievalGame.Application.Features.Weapons.Dtos;
-using MedievalGame.Domain.Entities;
 
 namespace MedievalGame.Application.Features.Characters.Dtos
 {

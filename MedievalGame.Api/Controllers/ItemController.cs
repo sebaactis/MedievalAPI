@@ -6,9 +6,6 @@ using MedievalGame.Application.Features.Items.Commands.UpdateItem;
 using MedievalGame.Application.Features.Items.Dtos;
 using MedievalGame.Application.Features.Items.Queries.GetItem;
 using MedievalGame.Application.Features.Items.Queries.GetItems;
-using MedievalGame.Application.Features.Weapons.Commands.DeleteWeapon;
-using MedievalGame.Application.Features.Weapons.Commands.UpdateWeapon;
-using MedievalGame.Application.Features.Weapons.Dtos;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MedievalGame.Api.Controllers
