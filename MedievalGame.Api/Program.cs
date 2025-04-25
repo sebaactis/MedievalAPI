@@ -1,4 +1,5 @@
 using FluentValidation;
+using MedievalGame.Api.Middlewares;
 using MedievalGame.Api.Responses;
 using MedievalGame.Application.Features.Characters.Commands.CreateCharacter;
 using MedievalGame.Application.Mapping;
@@ -46,12 +47,21 @@ using (var scope = app.Services.CreateScope())
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
+app.UseMiddleware<RequestResponseLoggingMiddleware>();
 
 app.UseExceptionHandler(appError =>
 {
     appError.Run(async context =>
-    {
+    {   
+        var logger = appError.ApplicationServices.GetRequiredService<ILogger<Program>>();
         var exception = context.Features.Get<IExceptionHandlerFeature>()?.Error;
+        var traceId = context.TraceIdentifier;
+
+        if (exception != null)
+        {
+            logger.LogError(exception, "An unhandled exception ocurred");
+        }
+
         var statusCode = exception switch
         {
             DomainException ex => ex.StatusCode,
@@ -60,21 +70,34 @@ app.UseExceptionHandler(appError =>
 
         var response = exception switch
         {
-            ValidationsException valEx => ApiResponse<object>.ErrorResponse(
-                valEx.Message,
-                valEx.StatusCode
-            ).WithErrors(valEx.Errors),
-
-            DomainException domainEx => ApiResponse<object>.ErrorResponse(
-                domainEx.Message,
-                domainEx.StatusCode
+            ValidationsException valEx => (
+                valEx.StatusCode,
+                ApiResponse<object>.ErrorResponse(valEx.Message, valEx.StatusCode, traceId)
+                    .WithErrors(valEx.Errors)
             ),
 
-            _ => ApiResponse<object>.ErrorResponse(
-                "Internal server error",
-                StatusCodes.Status500InternalServerError
+            DomainException domainEx => (
+                domainEx.StatusCode,
+                ApiResponse<object>.ErrorResponse(domainEx.Message, domainEx.StatusCode, traceId)
+            ),
+
+            DbUpdateException => (
+                StatusCodes.Status500InternalServerError,
+                ApiResponse<object>.ErrorResponse("A database error occurred.", StatusCodes.Status500InternalServerError, traceId)
+            ),
+
+            TaskCanceledException => (
+                StatusCodes.Status408RequestTimeout,
+                ApiResponse<object>.ErrorResponse("The request timed out.", StatusCodes.Status408RequestTimeout, traceId)
+            ),
+
+            _ => (
+                StatusCodes.Status500InternalServerError,
+                ApiResponse<object>.ErrorResponse("An unexpected error occurred.", StatusCodes.Status500InternalServerError, traceId)
             )
         };
+
+        logger.LogError(exception, "Exception caught. TraceId: {TraceId}", traceId);
 
         context.Response.StatusCode = statusCode;
         await context.Response.WriteAsJsonAsync(response);

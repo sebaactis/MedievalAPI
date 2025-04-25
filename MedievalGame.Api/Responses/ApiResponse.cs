@@ -8,12 +8,13 @@ public class ApiResponse<T>
     public int StatusCode { get; init; }
     public IEnumerable<string>? Errors { get; init; }
     public DateTime Timestamp { get; } = DateTime.UtcNow;
+    public string? TraceId { get; set; }
 
-    public static ApiResponse<T> SuccessResponse(T data, string? message = null, int statusCode = 200)
-        => new() { Success = true, Data = data, Message = message, StatusCode = statusCode };
+    public static ApiResponse<T> SuccessResponse(T data, string? message = null, int statusCode = 200, string? traceId = null)
+        => new() { Success = true, Data = data, Message = message, StatusCode = statusCode, TraceId = traceId };
 
-    public static ApiResponse<T> ErrorResponse(string message, int statusCode, T? data = default)
-        => new() { Success = false, Data = data, Message = message, StatusCode = statusCode };
+    public static ApiResponse<T> ErrorResponse(string message, int statusCode, T? data = default, string? traceId = null)
+        => new() { Success = false, Data = data, Message = message, StatusCode = statusCode, TraceId = traceId };
 
     public ApiResponse<T> WithErrors(IEnumerable<string> errors)
     {
@@ -23,7 +24,7 @@ public class ApiResponse<T>
             Message = this.Message,
             Data = this.Data,
             StatusCode = this.StatusCode,
-            Errors = errors
+            Errors = errors,
         };
     }
 }
