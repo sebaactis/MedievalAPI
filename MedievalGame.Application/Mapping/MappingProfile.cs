@@ -16,8 +16,15 @@ namespace MedievalGame.Application.Mapping
             CreateMap<Character, CharacterDto>()
                 .ForMember(dest => dest.Class, opt => opt.MapFrom(src => src.CharacterClass.Name))
                 .ForMember(dest => dest.Weapons, opt => opt.MapFrom(src => src.Weapons))
-                .ForMember(dest => dest.Items, opt => opt.MapFrom(src => src.Items));
+                .ForMember(dest => dest.Items, opt => opt.MapFrom(src => src.CharacterItems));
 
+            CreateMap<CharacterItem, CharacterItemDto>()
+                .ForMember(dest => dest.ItemId, opt => opt.MapFrom(src => src.Item.Id))
+                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Item.Name))
+                .ForMember(dest => dest.Value, opt => opt.MapFrom(src => src.Item.Value))
+                .ForMember(dest => dest.Type, opt => opt.MapFrom(src => src.Item.ItemType.Name))
+                .ForMember(dest => dest.Rarity, opt => opt.MapFrom(src => src.Item.Rarity.Name))
+                .ForMember(dest => dest.Quantity, opt => opt.MapFrom(src => src.Quantity));
 
             CreateMap<Weapon, WeaponDto>()
                 .ForMember(dest => dest.Rarity, opt => opt.MapFrom(src => src.Rarity.Name))

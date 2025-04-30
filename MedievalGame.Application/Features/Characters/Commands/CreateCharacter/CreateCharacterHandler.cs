@@ -9,7 +9,7 @@ using MedievalGame.Domain.Interfaces;
 
 namespace MedievalGame.Application.Features.Characters.Commands.CreateCharacter
 {
-    public class CreateCharacterHandler(ICharacterRepository characterRepository, IMapper mapper) : IRequestHandler<CreateCharacterCommand, CharacterDto>
+    public class CreateCharacterHandler(ICharacterRepository characterRepository, IMapper mapper, IMediator mediator) : IRequestHandler<CreateCharacterCommand, CharacterDto>
     {
         public async Task<CharacterDto> Handle(CreateCharacterCommand request, CancellationToken ct)
         {
@@ -31,7 +31,11 @@ namespace MedievalGame.Application.Features.Characters.Commands.CreateCharacter
 
                 await characterRepository.AddAsync(character);
 
-                return mapper.Map<CharacterDto>(character);
+                var characterDto = mapper.Map<CharacterDto>(character);
+
+                await mediator.Publish(new CreateCharacterNotification(characterDto), ct);
+
+                return characterDto;
 
             }
             catch (ValidationException ex)

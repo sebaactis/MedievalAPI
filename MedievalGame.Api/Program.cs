@@ -33,6 +33,7 @@ builder.Services.AddValidatorsFromAssemblyContaining<CreateCharacterValidator>()
 builder.Services.AddScoped<ICharacterRepository, CharacterRepository>();
 builder.Services.AddScoped<IWeaponRepository, WeaponRepository>();
 builder.Services.AddScoped<IItemRepository, ItemRepository>();
+builder.Services.AddScoped<ICharacterAuditRepository, CharacterAuditRepository>();
 
 // AutoMapper
 builder.Services.AddAutoMapper(config => config.AddMaps(typeof(MappingProfile).Assembly));

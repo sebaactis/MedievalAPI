@@ -12,6 +12,6 @@ namespace MedievalGame.Application.Features.Characters.Dtos
         public int Defense { get; set; }
         public string Class { get; set; } 
         public List<WeaponDto>? Weapons { get; set; }
-        public List<ItemDto> Items { get; set; }
+        public List<CharacterItemDto> Items { get; set; }
     }
 }

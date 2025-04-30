@@ -13,12 +13,14 @@ namespace MedievalGame.Infraestructure.Repositories
             return await context.Characters
                 .Include(c => c.Weapons)
                     .ThenInclude(w => w.Rarity)
-                 .Include(c => c.Weapons)
+                .Include(c => c.Weapons)
                     .ThenInclude(w => w.WeaponType)
-                .Include(c => c.Items)
-                    .ThenInclude(i => i.Rarity)
-                .Include(c => c.Items)
-                    .ThenInclude(i => i.ItemType)
+                .Include(c => c.CharacterItems)
+                    .ThenInclude(ci => ci.Item)
+                        .ThenInclude(i => i.ItemType)
+                .Include(c => c.CharacterItems)
+                    .ThenInclude(ci => ci.Item)
+                        .ThenInclude(i => i.Rarity)
                 .Include(c => c.CharacterClass)
                 .FirstOrDefaultAsync(c => c.Id == id);
         }
@@ -30,10 +32,12 @@ namespace MedievalGame.Infraestructure.Repositories
                     .ThenInclude(w => w.Rarity)
                 .Include(c => c.Weapons)
                     .ThenInclude(w => w.WeaponType)
-                .Include(c => c.Items)
-                    .ThenInclude(i => i.Rarity)
-                .Include(c => c.Items)
-                    .ThenInclude(i => i.ItemType)
+                .Include(c => c.CharacterItems)
+                    .ThenInclude(ci => ci.Item)
+                        .ThenInclude(i => i.ItemType)
+                .Include(c => c.CharacterItems)
+                    .ThenInclude(ci => ci.Item)
+                        .ThenInclude(i => i.Rarity)
                 .Include(c => c.CharacterClass)
                 .ToListAsync();
         }

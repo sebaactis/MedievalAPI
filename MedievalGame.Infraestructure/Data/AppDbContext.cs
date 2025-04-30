@@ -12,6 +12,7 @@ namespace MedievalGame.Infraestructure.Data
         public DbSet<WeaponType> WeaponTypes => Set<WeaponType>();
         public DbSet<CharacterClass> CharacterClasses => Set<CharacterClass>();
         public DbSet<ItemType> ItemTypes => Set<ItemType>();
+        public DbSet<CharacterAuditLog> CharacterAuditLogs => Set<CharacterAuditLog>();
 
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
@@ -20,6 +21,7 @@ namespace MedievalGame.Infraestructure.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             ConfigureCharacterModel(modelBuilder);
+            ConfigureCharacterItem(modelBuilder);
             ConfigureWeaponModel(modelBuilder);
             ConfigureItemModel(modelBuilder);
             ConfigureRarityModel(modelBuilder);
@@ -50,14 +52,24 @@ namespace MedievalGame.Infraestructure.Data
                            j => j.HasOne<Weapon>().WithMany().HasForeignKey("WeaponId"),
                            j => j.HasOne<Character>().WithMany().HasForeignKey("CharacterId")
                        );
+            });
+        }
 
-                entity.HasMany(c => c.Items)
-                  .WithMany(i => i.Characters)
-                  .UsingEntity<Dictionary<string, object>>(
-                      "CharacterItem",
-                      j => j.HasOne<Item>().WithMany().HasForeignKey("ItemId"),
-                      j => j.HasOne<Character>().WithMany().HasForeignKey("CharacterId")
-                  );
+        private static void ConfigureCharacterItem(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<CharacterItem>(entity =>
+            {
+                entity.HasKey(ci => new { ci.CharacterId, ci.ItemId });
+
+                entity.Property(ci => ci.Quantity).IsRequired();
+
+                entity.HasOne(ci => ci.Character)
+                      .WithMany(c => c.CharacterItems)
+                      .HasForeignKey(ci => ci.CharacterId);
+
+                entity.HasOne(ci => ci.Item)
+                      .WithMany(i => i.CharacterItems)
+                      .HasForeignKey(ci => ci.ItemId);
             });
         }
 

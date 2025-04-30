@@ -9,6 +9,6 @@
         public ItemType ItemType { get; set; }
         public Guid RarityId { get; set; }
         public Rarity Rarity { get; set; } = null!;
-        public List<Character> Characters { get; set; } = new();
+        public List<CharacterItem> CharacterItems { get; set; } = new();
     }
 }

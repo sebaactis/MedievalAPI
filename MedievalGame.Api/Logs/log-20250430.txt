@@ -7,3 +7,20 @@
 2025-04-30 08:18:28.725 -03:00 [INF] 📥 Request to POST /api/characters/v1 / 📤 Response: 200 / 📦 Message: Character created successfully
 2025-04-30 08:22:11.847 -03:00 [INF] 📥 Request to GET /api/characters/v1 / 📤 Response: 200 / 📦 Message: Characters retrieved successfully
 2025-04-30 08:29:40.117 -03:00 [INF] 📥 Request to GET /api/characters/v1 / 📤 Response: 200 / 📦 Message: Characters retrieved successfully
+2025-04-30 11:13:50.754 -03:00 [INF] 📥 Request to GET /scalar/v1 / 📤 Response: 200 / 📦 Message: No message or invalid JSON
+2025-04-30 11:13:50.907 -03:00 [INF] 📥 Request to GET /scalar/scalar.aspnetcore.js / 📤 Response: 304 / 📦 Message: No message or invalid JSON
+2025-04-30 11:13:50.970 -03:00 [INF] 📥 Request to GET /scalar/scalar.js / 📤 Response: 304 / 📦 Message: No message or invalid JSON
+2025-04-30 11:13:51.282 -03:00 [INF] 📥 Request to GET /openapi/v1.json / 📤 Response: 200 / 📦 Message: No message or invalid JSON
+2025-04-30 11:15:08.821 -03:00 [INF] 📥 Request to POST /api/characters/v1 / 📤 Response: 200 / 📦 Message: Character created successfully
+2025-04-30 16:51:01.366 -03:00 [INF] 📥 Request to GET /scalar/v1 / 📤 Response: 200 / 📦 Message: No message or invalid JSON
+2025-04-30 16:51:01.567 -03:00 [INF] 📥 Request to GET /scalar/scalar.js / 📤 Response: 304 / 📦 Message: No message or invalid JSON
+2025-04-30 16:51:01.615 -03:00 [INF] 📥 Request to GET /scalar/scalar.aspnetcore.js / 📤 Response: 304 / 📦 Message: No message or invalid JSON
+2025-04-30 16:51:01.933 -03:00 [INF] 📥 Request to GET /openapi/v1.json / 📤 Response: 200 / 📦 Message: No message or invalid JSON
+2025-04-30 16:51:02.317 -03:00 [INF] 📥 Request to GET /favicon.ico / 📤 Response: 404 / 📦 Message: No message or invalid JSON
+2025-04-30 16:51:16.224 -03:00 [INF] 📥 Request to GET /api/characters/v1 / 📤 Response: 200 / 📦 Message: Characters retrieved successfully
+2025-04-30 17:08:01.436 -03:00 [INF] 📥 Request to GET /api/characters/v1 / 📤 Response: 200 / 📦 Message: Characters retrieved successfully
+2025-04-30 17:08:44.855 -03:00 [INF] 📥 Request to POST /api/characters/v1/assignment/85E8BEAD-6860-4B4E-9224-08DD7E7B3A82/assign-item/922B7D25-F182-4FB8-B901-08DD833C506A / 📤 Response: 200 / 📦 Message: Item assigned to character successfully
+2025-04-30 17:09:06.589 -03:00 [INF] 📥 Request to GET /api/characters/v1 / 📤 Response: 200 / 📦 Message: Characters retrieved successfully
+2025-04-30 17:09:19.587 -03:00 [INF] 📥 Request to POST /api/characters/v1/assignment/85E8BEAD-6860-4B4E-9224-08DD7E7B3A82/assign-item/922B7D25-F182-4FB8-B901-08DD833C506A / 📤 Response: 200 / 📦 Message: Item assigned to character successfully
+2025-04-30 17:09:25.713 -03:00 [INF] 📥 Request to GET /api/characters/v1 / 📤 Response: 200 / 📦 Message: Characters retrieved successfully
+2025-04-30 17:14:21.244 -03:00 [INF] 📥 Request to GET /api/characters/v1 / 📤 Response: 200 / 📦 Message: Characters retrieved successfully

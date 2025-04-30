@@ -22,21 +22,6 @@ namespace MedievalGame.Infraestructure.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("CharacterItem", b =>
-                {
-                    b.Property<Guid>("CharacterId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("ItemId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("CharacterId", "ItemId");
-
-                    b.HasIndex("ItemId");
-
-                    b.ToTable("CharacterItem");
-                });
-
             modelBuilder.Entity("CharacterWeapon", b =>
                 {
                     b.Property<Guid>("CharacterId")
@@ -85,6 +70,27 @@ namespace MedievalGame.Infraestructure.Migrations
                     b.ToTable("Characters");
                 });
 
+            modelBuilder.Entity("MedievalGame.Domain.Entities.CharacterAuditLog", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("CharacterId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("CharacterAuditLogs");
+                });
+
             modelBuilder.Entity("MedievalGame.Domain.Entities.CharacterClass", b =>
                 {
                     b.Property<Guid>("Id")
@@ -103,6 +109,24 @@ namespace MedievalGame.Infraestructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("CharacterClasses");
+                });
+
+            modelBuilder.Entity("MedievalGame.Domain.Entities.CharacterItem", b =>
+                {
+                    b.Property<Guid>("CharacterId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("ItemId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.HasKey("CharacterId", "ItemId");
+
+                    b.HasIndex("ItemId");
+
+                    b.ToTable("CharacterItem");
                 });
 
             modelBuilder.Entity("MedievalGame.Domain.Entities.Item", b =>
@@ -228,21 +252,6 @@ namespace MedievalGame.Infraestructure.Migrations
                     b.ToTable("WeaponTypes");
                 });
 
-            modelBuilder.Entity("CharacterItem", b =>
-                {
-                    b.HasOne("MedievalGame.Domain.Entities.Character", null)
-                        .WithMany()
-                        .HasForeignKey("CharacterId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("MedievalGame.Domain.Entities.Item", null)
-                        .WithMany()
-                        .HasForeignKey("ItemId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("CharacterWeapon", b =>
                 {
                     b.HasOne("MedievalGame.Domain.Entities.Character", null)
@@ -267,6 +276,25 @@ namespace MedievalGame.Infraestructure.Migrations
                         .IsRequired();
 
                     b.Navigation("CharacterClass");
+                });
+
+            modelBuilder.Entity("MedievalGame.Domain.Entities.CharacterItem", b =>
+                {
+                    b.HasOne("MedievalGame.Domain.Entities.Character", "Character")
+                        .WithMany("CharacterItems")
+                        .HasForeignKey("CharacterId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MedievalGame.Domain.Entities.Item", "Item")
+                        .WithMany("CharacterItems")
+                        .HasForeignKey("ItemId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Character");
+
+                    b.Navigation("Item");
                 });
 
             modelBuilder.Entity("MedievalGame.Domain.Entities.Item", b =>
@@ -307,9 +335,19 @@ namespace MedievalGame.Infraestructure.Migrations
                     b.Navigation("WeaponType");
                 });
 
+            modelBuilder.Entity("MedievalGame.Domain.Entities.Character", b =>
+                {
+                    b.Navigation("CharacterItems");
+                });
+
             modelBuilder.Entity("MedievalGame.Domain.Entities.CharacterClass", b =>
                 {
                     b.Navigation("Characters");
+                });
+
+            modelBuilder.Entity("MedievalGame.Domain.Entities.Item", b =>
+                {
+                    b.Navigation("CharacterItems");
                 });
 
             modelBuilder.Entity("MedievalGame.Domain.Entities.ItemType", b =>

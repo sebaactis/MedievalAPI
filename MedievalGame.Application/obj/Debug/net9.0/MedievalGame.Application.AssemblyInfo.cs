@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MedievalGame.Application")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6307d8cd05bce8d3ae51f154969e643476cf0c86")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d48e566efbc16d3593b8d6d02228f6bbea04560e")]
 [assembly: System.Reflection.AssemblyProductAttribute("MedievalGame.Application")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MedievalGame.Application")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

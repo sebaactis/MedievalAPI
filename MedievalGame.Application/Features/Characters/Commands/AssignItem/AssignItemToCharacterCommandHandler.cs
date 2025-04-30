@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using MediatR;
 using MedievalGame.Application.Features.Characters.Dtos;
+using MedievalGame.Domain.Entities;
 using MedievalGame.Domain.Exceptions;
 using MedievalGame.Domain.Interfaces;
 
@@ -8,7 +9,6 @@ namespace MedievalGame.Application.Features.Characters.Commands.AssignItem
 {
     public class AssignItemToCharacterCommandHandler(ICharacterRepository characterRepository, IItemRepository itemRepository, IMapper mapper) : IRequestHandler<AssignItemToCharacterCommand, CharacterDto>
     {
-
         public async Task<CharacterDto> Handle(AssignItemToCharacterCommand request, CancellationToken cancellationToken)
         {
             var character = await characterRepository.GetByIdAsync(request.CharacterId)
@@ -17,7 +17,7 @@ namespace MedievalGame.Application.Features.Characters.Commands.AssignItem
             var item = await itemRepository.GetByIdAsync(request.ItemId)
                 ?? throw new NotFoundException("Item not found");
 
-            character.AssignItem(item);
+            character.AssignItem(item, 1);
 
             await characterRepository.UpdateAsync(character);
 

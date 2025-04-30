@@ -11,13 +11,25 @@
         public Guid CharacterClassId { get; set; }
         public CharacterClass CharacterClass { get; set; } = null!;
         public List<Weapon> Weapons { get; set; }
-        public List<Item> Items { get; set; }
+        public List<CharacterItem> CharacterItems { get; set; } = new();
 
-        public void AssignItem(Item item)
+        public void AssignItem(Item item, int quantity)
         {
-            if (!Items.Any(i => i.Id == item.Id))
+            var existing = CharacterItems.FirstOrDefault(ci => ci.ItemId == item.Id);
+
+            if (existing is not null)
             {
-                Items.Add(item);
+                existing.Quantity += quantity;
+            }
+            else
+            {
+                CharacterItems.Add(new CharacterItem
+                {
+                    Item = item,
+                    ItemId = item.Id,
+                    CharacterId = this.Id,
+                    Quantity = quantity
+                });
             }
         }
 
