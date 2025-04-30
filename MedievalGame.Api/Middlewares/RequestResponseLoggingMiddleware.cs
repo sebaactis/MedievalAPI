@@ -1,4 +1,6 @@
-﻿using System.Text;
+﻿using Serilog.Context;
+using System.Text;
+using System.Text.Json;
 
 namespace MedievalGame.Api.Middlewares
 {
@@ -6,29 +8,9 @@ namespace MedievalGame.Api.Middlewares
     {
         public async Task Invoke(HttpContext context)
         {
-            context.Request.EnableBuffering();
-
-            var requestBody = string.Empty;
-
-            if (context.Request.ContentLength > 0)
-            {
-                using var reader = new StreamReader(
-                    context.Request.Body,
-                    encoding: Encoding.UTF8,
-                    detectEncodingFromByteOrderMarks: false,
-                    leaveOpen: true
-                    );
-
-                requestBody = await reader.ReadToEndAsync();
-                context.Request.Body.Position = 0;
-            }
-
-            logger.LogInformation("Incoming Request: {method} {url} \nBody: {body}",
-            context.Request.Method,
-            context.Request.Path,
-            requestBody);
-
+            var request = context.Request;
             var originalBodyStream = context.Response.Body;
+
             using var responseBody = new MemoryStream();
             context.Response.Body = responseBody;
 
@@ -38,11 +20,59 @@ namespace MedievalGame.Api.Middlewares
             var responseText = await new StreamReader(context.Response.Body).ReadToEndAsync();
             context.Response.Body.Seek(0, SeekOrigin.Begin);
 
-            logger.LogInformation("Response: {statusCode} \nBody: {body}",
-                context.Response.StatusCode,
-                responseText);
+            var responseMessage = TryExtractMessage(responseText);
+
+            using (LogContext.PushProperty("LogType", "EndpointLog"))
+            {
+                logger.LogInformation(
+                    "📥 Request to {Method} {Path} / 📤 Response: {StatusCode} / 📦 Message: {Message}",
+                    request.Method,
+                    request.Path,
+                    context.Response.StatusCode,
+                    responseMessage
+                );
+            }
 
             await responseBody.CopyToAsync(originalBodyStream);
+        }
+
+        private string TryExtractMessage(string responseBody)
+        {
+            try
+            {
+                using var doc = JsonDocument.Parse(responseBody);
+                var root = doc.RootElement;
+
+                if (root.TryGetProperty("message", out var message))
+                {
+                    return message.GetString() ?? "No message";
+                }
+
+                if (root.TryGetProperty("title", out var title) &&
+                    root.TryGetProperty("errors", out var errors))
+                {
+                    var sb = new StringBuilder();
+                    sb.AppendLine(title.GetString() ?? "Validation error");
+
+                    foreach (var error in errors.EnumerateObject())
+                    {
+                        var field = error.Name;
+                        var messages = error.Value.EnumerateArray().Select(m => m.GetString());
+                        foreach (var msg in messages)
+                        {
+                            sb.AppendLine($"- {field}: {msg}");
+                        }
+                    }
+
+                    return sb.ToString();
+                }
+            }
+            catch
+            {
+                // Ignoramos errores de parseo
+            }
+
+            return "No message or invalid JSON";
         }
     }
 }

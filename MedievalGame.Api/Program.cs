@@ -10,24 +10,51 @@ using MedievalGame.Infraestructure.Repositories;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.EntityFrameworkCore;
 using Scalar.AspNetCore;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
 builder.Services.AddOpenApi();
 builder.Services.AddControllers();
+
+// EF Context
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("Connection")));
 
+// MediatR
 builder.Services.AddMediatR(cfg =>
     cfg.RegisterServicesFromAssembly(typeof(CreateCharacterCommand).Assembly));
 
+// Validator
 builder.Services.AddValidatorsFromAssemblyContaining<CreateCharacterValidator>();
 
+// Repositories DI
 builder.Services.AddScoped<ICharacterRepository, CharacterRepository>();
 builder.Services.AddScoped<IWeaponRepository, WeaponRepository>();
 builder.Services.AddScoped<IItemRepository, ItemRepository>();
 
+// AutoMapper
 builder.Services.AddAutoMapper(config => config.AddMaps(typeof(MappingProfile).Assembly));
+
+// Logger with SeriLog
+Log.Logger = new LoggerConfiguration()
+    .Enrich.FromLogContext()
+    .Filter.ByExcluding(logEvent =>
+        logEvent.Properties.ContainsKey("SourceContext") &&
+        logEvent.Properties["SourceContext"].ToString().Contains("Microsoft.EntityFrameworkCore")
+    )
+    .WriteTo.Console()
+    .WriteTo.Logger(lc => lc
+        .Filter.ByIncludingOnly(le =>
+            le.Properties.ContainsKey("LogType") &&
+            le.Properties["LogType"].ToString() == "\"EndpointLog\""
+        )
+        .WriteTo.File("Logs/log-.txt", rollingInterval: RollingInterval.Day)
+    )
+    .CreateLogger();
+
+builder.Host.UseSerilog();
 
 var app = builder.Build();
 
@@ -37,6 +64,8 @@ if (app.Environment.IsDevelopment())
     app.MapScalarApiReference();
 }
 
+
+// Auto Migrations when app starts
 using (var scope = app.Services.CreateScope())
 {
     var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
@@ -47,8 +76,12 @@ using (var scope = app.Services.CreateScope())
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
+
+// Middleware for logging requests and responses
 app.UseMiddleware<RequestResponseLoggingMiddleware>();
 
+
+// Middleware for handling exceptions
 app.UseExceptionHandler(appError =>
 {
     appError.Run(async context =>

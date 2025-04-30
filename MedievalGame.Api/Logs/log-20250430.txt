@@ -1,0 +1,9 @@
+2025-04-30 08:04:02.165 -03:00 [INF] 📥 Request to GET /scalar/v1 / 📤 Response: 200 / 📦 Message: No message or invalid JSON
+2025-04-30 08:04:02.365 -03:00 [INF] 📥 Request to GET /scalar/scalar.js / 📤 Response: 304 / 📦 Message: No message or invalid JSON
+2025-04-30 08:04:02.413 -03:00 [INF] 📥 Request to GET /scalar/scalar.aspnetcore.js / 📤 Response: 304 / 📦 Message: No message or invalid JSON
+2025-04-30 08:04:02.708 -03:00 [INF] 📥 Request to GET /openapi/v1.json / 📤 Response: 200 / 📦 Message: No message or invalid JSON
+2025-04-30 08:04:14.460 -03:00 [INF] 📥 Request to GET /api/characters/v1 / 📤 Response: 200 / 📦 Message: Characters retrieved successfully
+2025-04-30 08:04:28.367 -03:00 [INF] 📥 Request to GET /api/characters/v1 / 📤 Response: 200 / 📦 Message: Characters retrieved successfully
+2025-04-30 08:18:28.725 -03:00 [INF] 📥 Request to POST /api/characters/v1 / 📤 Response: 200 / 📦 Message: Character created successfully
+2025-04-30 08:22:11.847 -03:00 [INF] 📥 Request to GET /api/characters/v1 / 📤 Response: 200 / 📦 Message: Characters retrieved successfully
+2025-04-30 08:29:40.117 -03:00 [INF] 📥 Request to GET /api/characters/v1 / 📤 Response: 200 / 📦 Message: Characters retrieved successfully

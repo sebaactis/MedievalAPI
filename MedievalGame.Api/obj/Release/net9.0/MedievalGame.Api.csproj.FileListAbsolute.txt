@@ -358,3 +358,12 @@ D:\Descargas\Seba\Proyects\C#\MedievalGame\MedievalGame.Api\obj\Release\net9.0\s
 D:\Descargas\Seba\Proyects\C#\MedievalGame\MedievalGame.Api\obj\Release\net9.0\Medieval.9F7C8C0F.Up2Date
 D:\Descargas\Seba\Proyects\C#\MedievalGame\MedievalGame.Api\obj\Release\net9.0\MedievalGame.Api.genruntimeconfig.cache
 D:\Descargas\Seba\Proyects\C#\MedievalGame\MedievalGame.Api\obj\Release\net9.0\ref\MedievalGame.Api.dll
+D:\Descargas\Seba\Proyects\C#\MedievalGame\MedievalGame.Api\bin\Release\net9.0\Serilog.dll
+D:\Descargas\Seba\Proyects\C#\MedievalGame\MedievalGame.Api\bin\Release\net9.0\Serilog.Sinks.Console.dll
+D:\Descargas\Seba\Proyects\C#\MedievalGame\MedievalGame.Api\bin\Release\net9.0\Serilog.Sinks.File.dll
+D:\Descargas\Seba\Proyects\C#\MedievalGame\MedievalGame.Api\bin\Release\net9.0\Serilog.AspNetCore.dll
+D:\Descargas\Seba\Proyects\C#\MedievalGame\MedievalGame.Api\bin\Release\net9.0\Serilog.Extensions.Hosting.dll
+D:\Descargas\Seba\Proyects\C#\MedievalGame\MedievalGame.Api\bin\Release\net9.0\Serilog.Extensions.Logging.dll
+D:\Descargas\Seba\Proyects\C#\MedievalGame\MedievalGame.Api\bin\Release\net9.0\Serilog.Formatting.Compact.dll
+D:\Descargas\Seba\Proyects\C#\MedievalGame\MedievalGame.Api\bin\Release\net9.0\Serilog.Settings.Configuration.dll
+D:\Descargas\Seba\Proyects\C#\MedievalGame\MedievalGame.Api\bin\Release\net9.0\Serilog.Sinks.Debug.dll
