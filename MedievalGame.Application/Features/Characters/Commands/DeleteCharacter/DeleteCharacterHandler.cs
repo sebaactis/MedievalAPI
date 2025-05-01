@@ -6,7 +6,7 @@ using MedievalGame.Domain.Interfaces;
 
 namespace MedievalGame.Application.Features.Characters.Commands.DeleteCharacter
 {
-    public class DeleteCharacterHandler(ICharacterRepository repository, IMapper mapper) : IRequestHandler<DeleteCharacterCommand, CharacterDto>
+    public class DeleteCharacterHandler(ICharacterRepository repository, IMapper mapper, IMediator mediator) : IRequestHandler<DeleteCharacterCommand, CharacterDto>
     {
         public async Task<CharacterDto> Handle(DeleteCharacterCommand request, CancellationToken ct)
         {
@@ -16,8 +16,11 @@ namespace MedievalGame.Application.Features.Characters.Commands.DeleteCharacter
                 throw new NotFoundException("Character");
 
             var characterDeleted = await repository.DeleteAsync(character.Id);
+            var characterDto = mapper.Map<CharacterDto>(characterDeleted);
 
-            return mapper.Map<CharacterDto>(characterDeleted);
+            await mediator.Publish(new DeleteCharacterNotification(characterDto), ct);
+
+            return characterDto;
 
         }
     }

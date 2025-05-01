@@ -1,6 +1,5 @@
 ﻿using MediatR;
 using MedievalGame.Application.Features.Characters.Dtos;
-using MedievalGame.Domain.Entities;
 
 namespace MedievalGame.Application.Features.Characters.Commands.UpdateCharacter
 {

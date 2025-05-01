@@ -1,0 +1,43 @@
+2025-05-01 14:42:39.914 -03:00 [INF] 📥 Request to GET /scalar/v1 / 📤 Response: 200 / 📦 Message: No message or invalid JSON
+2025-05-01 14:42:40.165 -03:00 [INF] 📥 Request to GET /scalar/scalar.aspnetcore.js / 📤 Response: 304 / 📦 Message: No message or invalid JSON
+2025-05-01 14:42:40.213 -03:00 [INF] 📥 Request to GET /scalar/scalar.js / 📤 Response: 304 / 📦 Message: No message or invalid JSON
+2025-05-01 14:42:40.541 -03:00 [INF] 📥 Request to GET /openapi/v1.json / 📤 Response: 200 / 📦 Message: No message or invalid JSON
+2025-05-01 14:42:40.923 -03:00 [INF] 📥 Request to GET /favicon.ico / 📤 Response: 404 / 📦 Message: No message or invalid JSON
+2025-05-01 14:43:31.548 -03:00 [INF] 📥 Request to POST /api/characters/v1 / 📤 Response: 200 / 📦 Message: Character created successfully
+2025-05-01 14:54:05.085 -03:00 [INF] 📥 Request to GET /scalar/v1 / 📤 Response: 200 / 📦 Message: No message or invalid JSON
+2025-05-01 14:54:05.329 -03:00 [INF] 📥 Request to GET /scalar/scalar.aspnetcore.js / 📤 Response: 304 / 📦 Message: No message or invalid JSON
+2025-05-01 14:54:05.374 -03:00 [INF] 📥 Request to GET /scalar/scalar.js / 📤 Response: 304 / 📦 Message: No message or invalid JSON
+2025-05-01 14:54:05.626 -03:00 [INF] 📥 Request to GET /openapi/v1.json / 📤 Response: 200 / 📦 Message: No message or invalid JSON
+2025-05-01 14:54:12.378 -03:00 [INF] 📥 Request to DELETE /api/characters/v1/85E8BEAD-6860-4B4E-9224-08DD7E7B3A82 / 📤 Response: 500 / 📦 Message: No message or invalid JSON
+2025-05-01 14:56:58.912 -03:00 [INF] 📥 Request to DELETE /api/characters/v1/759C5071-247C-4504-5C76-08DD87D8A2AF / 📤 Response: 200 / 📦 Message: Character deleted successfully
+2025-05-01 15:06:42.891 -03:00 [INF] 📥 Request to GET /scalar/v1 / 📤 Response: 200 / 📦 Message: No message or invalid JSON
+2025-05-01 15:06:43.096 -03:00 [INF] 📥 Request to GET /scalar/scalar.aspnetcore.js / 📤 Response: 304 / 📦 Message: No message or invalid JSON
+2025-05-01 15:06:43.157 -03:00 [INF] 📥 Request to GET /scalar/scalar.js / 📤 Response: 304 / 📦 Message: No message or invalid JSON
+2025-05-01 15:06:43.403 -03:00 [INF] 📥 Request to GET /openapi/v1.json / 📤 Response: 200 / 📦 Message: No message or invalid JSON
+2025-05-01 15:08:12.319 -03:00 [INF] 📥 Request to DELETE /api/characters/v1/759C5071-247C-4504-5C76-08DD87D8A2AF / 📤 Response: 404 / 📦 Message: Character not found
+2025-05-01 15:14:21.386 -03:00 [INF] 📥 Request to PUT /api/characters/v1/B506BAE0-B2BD-4397-D08A-08DD87F169A3 / 📤 Response: 200 / 📦 Message: Character updated successfully
+2025-05-01 15:18:21.539 -03:00 [INF] 📥 Request to POST /api/characters/v1 / 📤 Response: 200 / 📦 Message: Character created successfully
+2025-05-01 15:18:47.164 -03:00 [INF] 📥 Request to PUT /api/characters/v1/3A66D0F0-0A65-477A-88F6-08DD88DC8E04 / 📤 Response: 500 / 📦 Message: A database error occurred.
+2025-05-01 15:18:55.294 -03:00 [INF] 📥 Request to PUT /api/characters/v1/3A66D0F0-0A65-477A-88F6-08DD88DC8E04 / 📤 Response: 400 / 📦 Message: One or more validation errors occurred.
+- command: The command field is required.
+- $.characterClassId: The JSON value could not be converted to MedievalGame.Application.Features.Characters.Commands.UpdateCharacter.UpdateCharacterCommand. Path: $.characterClassId | LineNumber: 7 | BytePositionInLine: 24.
+
+2025-05-01 15:19:08.153 -03:00 [INF] 📥 Request to GET /scalar/v1 / 📤 Response: 200 / 📦 Message: No message or invalid JSON
+2025-05-01 15:19:08.377 -03:00 [INF] 📥 Request to GET /scalar/scalar.aspnetcore.js / 📤 Response: 304 / 📦 Message: No message or invalid JSON
+2025-05-01 15:19:08.424 -03:00 [INF] 📥 Request to GET /scalar/scalar.js / 📤 Response: 304 / 📦 Message: No message or invalid JSON
+2025-05-01 15:19:08.661 -03:00 [INF] 📥 Request to GET /openapi/v1.json / 📤 Response: 200 / 📦 Message: No message or invalid JSON
+2025-05-01 15:19:19.249 -03:00 [INF] 📥 Request to PUT /api/characters/v1/3A66D0F0-0A65-477A-88F6-08DD88DC8E04 / 📤 Response: 500 / 📦 Message: A database error occurred.
+2025-05-01 15:20:46.690 -03:00 [INF] 📥 Request to PUT /api/characters/v1/3A66D0F0-0A65-477A-88F6-08DD88DC8E04 / 📤 Response: 500 / 📦 Message: A database error occurred.
+2025-05-01 15:20:55.532 -03:00 [INF] 📥 Request to GET /scalar/v1 / 📤 Response: 200 / 📦 Message: No message or invalid JSON
+2025-05-01 15:20:55.668 -03:00 [INF] 📥 Request to GET /scalar/scalar.aspnetcore.js / 📤 Response: 304 / 📦 Message: No message or invalid JSON
+2025-05-01 15:20:55.716 -03:00 [INF] 📥 Request to GET /scalar/scalar.js / 📤 Response: 304 / 📦 Message: No message or invalid JSON
+2025-05-01 15:20:55.971 -03:00 [INF] 📥 Request to GET /openapi/v1.json / 📤 Response: 200 / 📦 Message: No message or invalid JSON
+2025-05-01 15:21:09.989 -03:00 [INF] 📥 Request to PUT /api/characters/v1/3A66D0F0-0A65-477A-88F6-08DD88DC8E04 / 📤 Response: 500 / 📦 Message: A database error occurred.
+2025-05-01 15:25:37.673 -03:00 [INF] 📥 Request to GET /scalar/v1 / 📤 Response: 200 / 📦 Message: No message or invalid JSON
+2025-05-01 15:25:37.851 -03:00 [INF] 📥 Request to GET /scalar/scalar.aspnetcore.js / 📤 Response: 304 / 📦 Message: No message or invalid JSON
+2025-05-01 15:25:37.911 -03:00 [INF] 📥 Request to GET /scalar/scalar.js / 📤 Response: 304 / 📦 Message: No message or invalid JSON
+2025-05-01 15:25:38.169 -03:00 [INF] 📥 Request to GET /openapi/v1.json / 📤 Response: 200 / 📦 Message: No message or invalid JSON
+2025-05-01 15:25:48.668 -03:00 [INF] 📥 Request to PUT /api/characters/v1/3A66D0F0-0A65-477A-88F6-08DD88DC8E04 / 📤 Response: 200 / 📦 Message: Character updated successfully
+2025-05-01 15:26:04.417 -03:00 [INF] 📥 Request to PUT /api/characters/v1/3A66D0F0-0A65-477A-88F6-08DD88DC8E04 / 📤 Response: 200 / 📦 Message: Character updated successfully
+2025-05-01 15:26:17.983 -03:00 [INF] 📥 Request to DELETE /api/characters/v1/3A66D0F0-0A65-477A-88F6-08DD88DC8E04 / 📤 Response: 200 / 📦 Message: Character deleted successfully
+2025-05-01 15:26:22.809 -03:00 [INF] 📥 Request to DELETE /api/characters/v1/3A66D0F0-0A65-477A-88F6-08DD88DC8E04 / 📤 Response: 404 / 📦 Message: Character not found

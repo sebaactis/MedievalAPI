@@ -38,6 +38,7 @@ builder.Services.AddScoped<ICharacterAuditRepository, CharacterAuditRepository>(
 // AutoMapper
 builder.Services.AddAutoMapper(config => config.AddMaps(typeof(MappingProfile).Assembly));
 
+
 // Logger with SeriLog
 Log.Logger = new LoggerConfiguration()
     .Enrich.FromLogContext()
@@ -78,64 +79,8 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
 
-// Middleware for logging requests and responses
+// Middlewares
 app.UseMiddleware<RequestResponseLoggingMiddleware>();
-
-
-// Middleware for handling exceptions
-app.UseExceptionHandler(appError =>
-{
-    appError.Run(async context =>
-    {   
-        var logger = appError.ApplicationServices.GetRequiredService<ILogger<Program>>();
-        var exception = context.Features.Get<IExceptionHandlerFeature>()?.Error;
-        var traceId = context.TraceIdentifier;
-
-        if (exception != null)
-        {
-            logger.LogError(exception, "An unhandled exception ocurred");
-        }
-
-        var statusCode = exception switch
-        {
-            DomainException ex => ex.StatusCode,
-            _ => StatusCodes.Status500InternalServerError
-        };
-
-        var response = exception switch
-        {
-            ValidationsException valEx => (
-                valEx.StatusCode,
-                ApiResponse<object>.ErrorResponse(valEx.Message, valEx.StatusCode, traceId)
-                    .WithErrors(valEx.Errors)
-            ),
-
-            DomainException domainEx => (
-                domainEx.StatusCode,
-                ApiResponse<object>.ErrorResponse(domainEx.Message, domainEx.StatusCode, traceId)
-            ),
-
-            DbUpdateException => (
-                StatusCodes.Status500InternalServerError,
-                ApiResponse<object>.ErrorResponse("A database error occurred.", StatusCodes.Status500InternalServerError, traceId)
-            ),
-
-            TaskCanceledException => (
-                StatusCodes.Status408RequestTimeout,
-                ApiResponse<object>.ErrorResponse("The request timed out.", StatusCodes.Status408RequestTimeout, traceId)
-            ),
-
-            _ => (
-                StatusCodes.Status500InternalServerError,
-                ApiResponse<object>.ErrorResponse("An unexpected error occurred.", StatusCodes.Status500InternalServerError, traceId)
-            )
-        };
-
-        logger.LogError(exception, "Exception caught. TraceId: {TraceId}", traceId);
-
-        context.Response.StatusCode = statusCode;
-        await context.Response.WriteAsJsonAsync(response);
-    });
-});
+app.UseMiddleware<ExceptionHandlingMiddleware>();
 
 app.Run();

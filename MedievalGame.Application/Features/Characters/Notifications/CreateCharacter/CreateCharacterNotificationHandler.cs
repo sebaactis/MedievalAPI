@@ -5,7 +5,7 @@ using MedievalGame.Domain.Interfaces;
 
 namespace MedievalGame.Application.Features.Characters.Notifications.CreateCharacter
 {
-    public class CreateCharacterAuditHandler(ICharacterAuditRepository auditRepo) : INotificationHandler<CreateCharacterNotification>
+    public class CreateCharacterNotificationHandler(ICharacterAuditRepository auditRepo) : INotificationHandler<CreateCharacterNotification>
     {
         public async Task Handle(CreateCharacterNotification notification, CancellationToken cancellationToken)
         {
@@ -15,6 +15,7 @@ namespace MedievalGame.Application.Features.Characters.Notifications.CreateChara
             {
                 CharacterId = character.Id,
                 Name = character.Name,
+                OperationType = "Create"
             };
 
             await auditRepo.SaveAsync(log, cancellationToken);

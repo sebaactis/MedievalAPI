@@ -6,6 +6,7 @@ namespace MedievalGame.Domain.Entities
         public Guid Id { get; set; } = Guid.NewGuid();
         public Guid CharacterId { get; set; }
         public string Name { get; set; } = string.Empty;
-        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+        public string OperationType { get; set; } = string.Empty;
+        public DateTime Date { get; set; } = DateTime.UtcNow;
     }
 }
