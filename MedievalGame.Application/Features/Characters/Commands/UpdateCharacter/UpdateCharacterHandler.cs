@@ -21,8 +21,6 @@ namespace MedievalGame.Application.Features.Characters.Commands.UpdateCharacter
                 throw new NotFoundException($"Character with ID {request.Id} not found.");
             }
 
-            
-
             var updatedCharacter = await repository.UpdateAsync(mapper.Map(request, character));
 
             var characterDto = mapper.Map<CharacterDto>(updatedCharacter);

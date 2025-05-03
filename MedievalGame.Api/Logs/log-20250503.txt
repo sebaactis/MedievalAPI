@@ -1,0 +1,9 @@
+2025-05-03 14:55:12.984 -03:00 [INF] 📥 Request to GET /scalar/v1 / 📤 Response: 200 / 📦 Message: No message or invalid JSON
+2025-05-03 14:55:13.195 -03:00 [INF] 📥 Request to GET /scalar/scalar.aspnetcore.js / 📤 Response: 304 / 📦 Message: No message or invalid JSON
+2025-05-03 14:55:13.239 -03:00 [INF] 📥 Request to GET /scalar/scalar.js / 📤 Response: 304 / 📦 Message: No message or invalid JSON
+2025-05-03 14:55:13.608 -03:00 [INF] 📥 Request to GET /openapi/v1.json / 📤 Response: 200 / 📦 Message: No message or invalid JSON
+2025-05-03 14:55:14.288 -03:00 [INF] 📥 Request to GET /favicon.ico / 📤 Response: 404 / 📦 Message: No message or invalid JSON
+2025-05-03 14:55:17.747 -03:00 [INF] 📥 Request to POST /api/characters/v1 / 📤 Response: 400 / 📦 Message: One or more validation errors occurred.
+- command: The command field is required.
+- $.characterClassId: The JSON value could not be converted to MedievalGame.Application.Features.Characters.Commands.CreateCharacter.CreateCharacterCommand. Path: $.characterClassId | LineNumber: 6 | BytePositionInLine: 24.
+

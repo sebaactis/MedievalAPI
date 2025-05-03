@@ -10,6 +10,10 @@ namespace MedievalGame.Application.Features.Characters.Commands.DeleteCharacter
     {
         public async Task<CharacterDto> Handle(DeleteCharacterCommand request, CancellationToken ct)
         {
+
+            if(request.Id == Guid.Empty)
+                throw new ArgumentException();
+
             var character = await repository.GetByIdAsync(request.Id);
 
             if (character is null)

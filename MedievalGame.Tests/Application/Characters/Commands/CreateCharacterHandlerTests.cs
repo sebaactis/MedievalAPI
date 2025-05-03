@@ -4,13 +4,16 @@ using MediatR;
 using MedievalGame.Application.Features.Characters.Commands.CreateCharacter;
 using MedievalGame.Application.Features.Characters.Dtos;
 using MedievalGame.Domain.Entities;
+using MedievalGame.Domain.Exceptions;
 using MedievalGame.Domain.Interfaces;
 using Moq;
 
-namespace MedievalGame.Tests.Application.Characters
+namespace MedievalGame.Tests.Application.Characters.Commands
 {
-    public class CreateCharacterCommandHandlerTests
+    public class CreateCharacterHandlerTests
     {
+
+        #region Success Cases
         [Fact]
         public async Task Handle_ShouldReturnCharacterDto_WhenCharacterIsCreated()
         {
@@ -18,7 +21,7 @@ namespace MedievalGame.Tests.Application.Characters
 
             var mockRepo = new Mock<ICharacterRepository>();
             var mockMapper = new Mock<IMapper>();
-            var mockPublisher = new Mock<IMediator>();
+            var mockMediator = new Mock<IMediator>();
 
             var character = new Character
             {
@@ -40,10 +43,9 @@ namespace MedievalGame.Tests.Application.Characters
                 Defense = character.Defense
             };
 
-            mockMapper.Setup(m => m.Map<Character>(It.IsAny<CreateCharacterCommand>())).Returns(character);
             mockMapper.Setup(m => m.Map<CharacterDto>(It.IsAny<Character>())).Returns(expectedDto);
 
-            var handler = new CreateCharacterHandler(mockRepo.Object, mockMapper.Object, mockPublisher.Object);
+            var handler = new CreateCharacterHandler(mockRepo.Object, mockMapper.Object, mockMediator.Object);
 
             var result = await handler.Handle(command, CancellationToken.None);
 
@@ -52,7 +54,30 @@ namespace MedievalGame.Tests.Application.Characters
             result.Name.Should().Be("John Pepen");
 
             mockRepo.Verify(r => r.AddAsync(It.IsAny<Character>()), Times.Once);
-            mockPublisher.Verify(p => p.Publish(It.IsAny<CreateCharacterNotification>(), It.IsAny<CancellationToken>()), Times.Once);
+            mockMediator.Verify(p => p.Publish(It.IsAny<CreateCharacterNotification>(), It.IsAny<CancellationToken>()), Times.Once);
         }
+
+        #endregion
+
+        #region Failure Cases
+
+        [Fact]
+        public async Task Handle_ShouldThrowValidationsException_WhenRequiredAttributeIsMissing()
+        {
+            var command = new CreateCharacterCommand(null, 200, 300, 150, 5, Guid.NewGuid());
+
+            var mockRepo = new Mock<ICharacterRepository>();
+            var mockMapper = new Mock<IMapper>();
+            var mockPublisher = new Mock<IMediator>();
+
+            var handler = new CreateCharacterHandler(mockRepo.Object, mockMapper.Object, mockPublisher.Object);
+
+            await Assert.ThrowsAsync<ValidationsException>(() => handler.Handle(command, CancellationToken.None));
+
+            mockRepo.Verify(r => r.AddAsync(It.IsAny<Character>()), Times.Never);
+            mockPublisher.Verify(p => p.Publish(It.IsAny<CreateCharacterNotification>(), It.IsAny<CancellationToken>()), Times.Never);
+        }
+
+        #endregion
     }
 }
