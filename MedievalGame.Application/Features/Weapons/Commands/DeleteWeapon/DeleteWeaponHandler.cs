@@ -6,7 +6,7 @@ using MedievalGame.Domain.Interfaces;
 
 namespace MedievalGame.Application.Features.Weapons.Commands.DeleteWeapon
 {
-    public class DeleteWeaponHandler(IWeaponRepository weaponRepository, IMapper mapper) : IRequestHandler<DeleteWeaponCommand, WeaponDto>
+    public class DeleteWeaponHandler(IWeaponRepository weaponRepository, IMapper mapper, IMediator mediator) : IRequestHandler<DeleteWeaponCommand, WeaponDto>
     {
         public async Task<WeaponDto> Handle(DeleteWeaponCommand request, CancellationToken cancellationToken)
         {
@@ -15,8 +15,12 @@ namespace MedievalGame.Application.Features.Weapons.Commands.DeleteWeapon
             {
                 throw new NotFoundException($"Weapon with ID {request.Id} not found.");
             }
-            await weaponRepository.DeleteAsync(weapon.Id);
-            return mapper.Map<WeaponDto>(weapon);
+            var weaponDeleted = await weaponRepository.DeleteAsync(weapon.Id);
+            var weaponDto = mapper.Map<WeaponDto>(weaponDeleted);
+
+            await mediator.Publish(new DeleteWeaponNotification(weaponDto), cancellationToken);
+
+            return weaponDto;
         }
     }
 }

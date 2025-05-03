@@ -8,7 +8,7 @@ using MedievalGame.Domain.Interfaces;
 
 namespace MedievalGame.Application.Features.Weapons.Commands.CreateWeapon
 {
-    public class CreateWeaponHandler(IWeaponRepository weaponRepository, IMapper mapper) : IRequestHandler<CreateWeaponCommand, WeaponDto>
+    public class CreateWeaponHandler(IWeaponRepository weaponRepository, IMapper mapper, IMediator mediator) : IRequestHandler<CreateWeaponCommand, WeaponDto>
     {
         public async Task<WeaponDto> Handle(CreateWeaponCommand request, CancellationToken ct)
         {
@@ -27,8 +27,11 @@ namespace MedievalGame.Application.Features.Weapons.Commands.CreateWeapon
                 };
 
                 var createdWeapon = await weaponRepository.AddAsync(weapon);
+                var weaponDto = mapper.Map<WeaponDto>(createdWeapon);
 
-                return mapper.Map<WeaponDto>(createdWeapon);
+                await mediator.Publish(new CreateWeaponNotification(weaponDto), ct);
+
+                return weaponDto;
             }
 
             catch (ValidationException ex)

@@ -9,7 +9,7 @@ using MedievalGame.Domain.Interfaces;
 
 namespace MedievalGame.Application.Features.Items.Commands.UpdateItem
 {
-    public class UpdateItemHandler(IItemRepository repository, IMapper mapper) : IRequestHandler<UpdateItemCommand, ItemDto>
+    public class UpdateItemHandler(IItemRepository repository, IMapper mapper, IMediator mediator) : IRequestHandler<UpdateItemCommand, ItemDto>
     {
         public async Task<ItemDto> Handle(UpdateItemCommand request, CancellationToken cancellationToken)
         {
@@ -26,8 +26,11 @@ namespace MedievalGame.Application.Features.Items.Commands.UpdateItem
             mapper.Map(request, item);
 
             var updatedItem = await repository.UpdateAsync(item);
+            var itemDto = mapper.Map<ItemDto>(updatedItem);
 
-            return mapper.Map<ItemDto>(updatedItem);
+            await mediator.Publish(new UpdateItemNotification(itemDto), cancellationToken);
+
+            return itemDto;
         }
     }
 }

@@ -162,6 +162,31 @@ namespace MedievalGame.Infraestructure.Migrations
                     b.ToTable("Items");
                 });
 
+            modelBuilder.Entity("MedievalGame.Domain.Entities.ItemAuditLog", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("ItemId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("OperationType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ItemAuditLogs");
+                });
+
             modelBuilder.Entity("MedievalGame.Domain.Entities.ItemType", b =>
                 {
                     b.Property<Guid>("Id")
@@ -234,6 +259,31 @@ namespace MedievalGame.Infraestructure.Migrations
                     b.HasIndex("WeaponTypeId");
 
                     b.ToTable("Weapons");
+                });
+
+            modelBuilder.Entity("MedievalGame.Domain.Entities.WeaponAuditLog", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("OperationType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("WeaponId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("WeaponAuditLogs");
                 });
 
             modelBuilder.Entity("MedievalGame.Domain.Entities.WeaponType", b =>

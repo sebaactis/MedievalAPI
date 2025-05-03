@@ -8,7 +8,7 @@ using MedievalGame.Domain.Interfaces;
 
 namespace MedievalGame.Application.Features.Items.Commands.CreateItem
 {
-    public class CreateItemHandler(IItemRepository repository, IMapper mapper) : IRequestHandler<CreateItemCommand, ItemDto>
+    public class CreateItemHandler(IItemRepository repository, IMapper mapper, IMediator mediator) : IRequestHandler<CreateItemCommand, ItemDto>
     {
         public async Task<ItemDto> Handle(CreateItemCommand request, CancellationToken ct)
         {
@@ -27,8 +27,11 @@ namespace MedievalGame.Application.Features.Items.Commands.CreateItem
                 };
 
                 await repository.AddAsync(item);
+                var itemDto = mapper.Map<ItemDto>(item);
 
-                return mapper.Map<ItemDto>(item);
+                await mediator.Publish(new CreateItemNotification(itemDto), ct);
+
+                return itemDto;
 
             }
             catch (ValidationException ex)

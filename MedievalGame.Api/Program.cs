@@ -34,6 +34,8 @@ builder.Services.AddScoped<ICharacterRepository, CharacterRepository>();
 builder.Services.AddScoped<IWeaponRepository, WeaponRepository>();
 builder.Services.AddScoped<IItemRepository, ItemRepository>();
 builder.Services.AddScoped<ICharacterAuditRepository, CharacterAuditRepository>();
+builder.Services.AddScoped<IItemAuditRepository, ItemAuditRepository>();
+builder.Services.AddScoped<IWeaponAuditRepository, WeaponAuditRepository>();
 
 // AutoMapper
 builder.Services.AddAutoMapper(config => config.AddMaps(typeof(MappingProfile).Assembly));

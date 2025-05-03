@@ -43,12 +43,17 @@ namespace MedievalGame.Application.Mapping
                 .ForMember(dest => dest.CharacterClassId, opt => opt.Condition(src => src.CharacterClassId != null));
 
             CreateMap<UpdateWeaponCommand, Weapon>()
-                .ForAllMembers(opts => opts.Condition((src, dest, srcMember) =>
-                    srcMember != null));
+                .ForMember(dest => dest.Name, opt => opt.Condition(src => src.Name != null))
+                .ForMember(dest => dest.AttackPower, opt => opt.Condition(src => src.AttackPower != null))
+                .ForMember(dest => dest.Durability, opt => opt.Condition(src => src.Durability != null))
+                .ForMember(dest => dest.WeaponTypeId, opt => opt.Condition(src => src.WeaponTypeId != null))
+                .ForMember(dest => dest.RarityId, opt => opt.Condition(src => src.RarityId != null));
 
             CreateMap<UpdateItemCommand, Item>()
-                .ForAllMembers(opts => opts.Condition((src, dest, srcMember) =>
-                    srcMember != null));
+                .ForMember(dest => dest.Name, opt => opt.Condition(src => src.Name != null))
+                .ForMember(dest => dest.Value, opt => opt.Condition(src => src.Value != null))
+                .ForMember(dest => dest.RarityId, opt => opt.Condition(src => src.RarityId != null))
+                .ForMember(dest => dest.ItemTypeId, opt => opt.Condition(src => src.ItemTypeId != null));
         }
     }
 }

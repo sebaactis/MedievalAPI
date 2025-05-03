@@ -11,7 +11,10 @@ namespace MedievalGame.Infraestructure.Repositories
         {
             await context.AddAsync(weapon);
             await context.SaveChangesAsync();
-            return weapon;
+            return await context.Weapons
+                            .Include(w => w.Rarity)
+                            .Include(w => w.WeaponType)
+                            .FirstOrDefaultAsync(w => w.Id == weapon.Id);
         }
 
         public async Task<Weapon> DeleteAsync(Guid id)

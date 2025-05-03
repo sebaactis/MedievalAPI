@@ -1,0 +1,22 @@
+2025-05-02 19:36:29.731 -03:00 [INF] 📥 Request to GET /scalar/v1 / 📤 Response: 200 / 📦 Message: No message or invalid JSON
+2025-05-02 19:36:29.949 -03:00 [INF] 📥 Request to GET /scalar/scalar.aspnetcore.js / 📤 Response: 304 / 📦 Message: No message or invalid JSON
+2025-05-02 19:36:30.032 -03:00 [INF] 📥 Request to GET /scalar/scalar.js / 📤 Response: 304 / 📦 Message: No message or invalid JSON
+2025-05-02 19:36:30.372 -03:00 [INF] 📥 Request to GET /openapi/v1.json / 📤 Response: 200 / 📦 Message: No message or invalid JSON
+2025-05-02 19:36:31.340 -03:00 [INF] 📥 Request to GET /favicon.ico / 📤 Response: 404 / 📦 Message: No message or invalid JSON
+2025-05-02 19:37:36.240 -03:00 [INF] 📥 Request to POST /api/Item / 📤 Response: 200 / 📦 Message: Item created successfully
+2025-05-02 19:43:13.787 -03:00 [INF] 📥 Request to DELETE /api/Item/918C5F98-720F-41C0-4C57-08DD89C9EFAA / 📤 Response: 200 / 📦 Message: Item deleted successfully
+2025-05-02 22:31:58.955 -03:00 [INF] 📥 Request to GET /scalar/v1 / 📤 Response: 200 / 📦 Message: No message or invalid JSON
+2025-05-02 22:31:59.171 -03:00 [INF] 📥 Request to GET /scalar/scalar.js / 📤 Response: 304 / 📦 Message: No message or invalid JSON
+2025-05-02 22:31:59.240 -03:00 [INF] 📥 Request to GET /scalar/scalar.aspnetcore.js / 📤 Response: 304 / 📦 Message: No message or invalid JSON
+2025-05-02 22:31:59.521 -03:00 [INF] 📥 Request to GET /openapi/v1.json / 📤 Response: 200 / 📦 Message: No message or invalid JSON
+2025-05-02 22:32:32.398 -03:00 [INF] 📥 Request to PUT /api/Item/922B7D25-F182-4FB8-B901-08DD833C506A / 📤 Response: 200 / 📦 Message: Item updated successfully
+2025-05-02 22:48:36.890 -03:00 [INF] 📥 Request to GET /scalar/v1 / 📤 Response: 200 / 📦 Message: No message or invalid JSON
+2025-05-02 22:48:37.099 -03:00 [INF] 📥 Request to GET /scalar/scalar.js / 📤 Response: 304 / 📦 Message: No message or invalid JSON
+2025-05-02 22:48:37.143 -03:00 [INF] 📥 Request to GET /scalar/scalar.aspnetcore.js / 📤 Response: 304 / 📦 Message: No message or invalid JSON
+2025-05-02 22:48:37.403 -03:00 [INF] 📥 Request to GET /openapi/v1.json / 📤 Response: 200 / 📦 Message: No message or invalid JSON
+2025-05-02 22:49:42.333 -03:00 [INF] 📥 Request to POST /api/Weapon / 📤 Response: 200 / 📦 Message: Weapon created successfully
+2025-05-02 22:53:55.369 -03:00 [INF] 📥 Request to POST /api/Weapon / 📤 Response: 400 / 📦 Message: Validation errors
+2025-05-02 22:54:00.463 -03:00 [INF] 📥 Request to POST /api/Weapon / 📤 Response: 400 / 📦 Message: Validation errors
+2025-05-02 22:54:07.564 -03:00 [INF] 📥 Request to POST /api/Weapon / 📤 Response: 200 / 📦 Message: Weapon created successfully
+2025-05-02 22:54:17.485 -03:00 [INF] 📥 Request to DELETE /api/Weapon/776b0a02-6a26-482a-5ea9-08dd89e563da / 📤 Response: 200 / 📦 Message: Weapon deleted successfully
+2025-05-02 22:54:39.975 -03:00 [INF] 📥 Request to PUT /api/Weapon/1A2B75BE-CE49-4AF9-6D8C-08DD89E4C5D6 / 📤 Response: 200 / 📦 Message: Weapon updated successfully

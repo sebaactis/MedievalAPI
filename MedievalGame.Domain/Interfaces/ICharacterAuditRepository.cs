@@ -2,8 +2,8 @@
 
 namespace MedievalGame.Domain.Interfaces
 {
-    public interface ICharacterAuditRepository
+    public interface ICharacterAuditRepository : IAuditRepository<CharacterAuditLog>
     {
-        Task SaveAsync(CharacterAuditLog log, CancellationToken cancellationToken);
+        
     }
 }

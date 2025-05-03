@@ -13,6 +13,8 @@ namespace MedievalGame.Infraestructure.Data
         public DbSet<CharacterClass> CharacterClasses => Set<CharacterClass>();
         public DbSet<ItemType> ItemTypes => Set<ItemType>();
         public DbSet<CharacterAuditLog> CharacterAuditLogs => Set<CharacterAuditLog>();
+        public DbSet<ItemAuditLog> ItemAuditLogs => Set<ItemAuditLog>();
+        public DbSet<WeaponAuditLog> WeaponAuditLogs => Set<WeaponAuditLog>();
 
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {

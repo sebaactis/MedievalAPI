@@ -7,7 +7,7 @@ using MedievalGame.Domain.Interfaces;
 
 namespace MedievalGame.Application.Features.Weapons.Commands.UpdateWeapon
 {
-    public class UpdateWeaponHandler(IWeaponRepository weaponRepository, IMapper mapper) : IRequestHandler<UpdateWeaponCommand, WeaponDto>
+    public class UpdateWeaponHandler(IWeaponRepository weaponRepository, IMapper mapper, IMediator mediator) : IRequestHandler<UpdateWeaponCommand, WeaponDto>
     {
         public async Task<WeaponDto> Handle(UpdateWeaponCommand request, CancellationToken cancellationToken)
         {
@@ -24,8 +24,11 @@ namespace MedievalGame.Application.Features.Weapons.Commands.UpdateWeapon
             mapper.Map(request, weapon);
 
             var updatedWeapon = await weaponRepository.UpdateAsync(weapon);
+            var weaponDto = mapper.Map<WeaponDto>(updatedWeapon);
 
-            return mapper.Map<WeaponDto>(updatedWeapon);
+            await mediator.Publish(new UpdateWeaponNotification(weaponDto), cancellationToken);
+
+            return weaponDto;
         }
     }
 }
