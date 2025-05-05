@@ -10,6 +10,15 @@ namespace MedievalGame.Tests.Application.Characters.Queries
 {
     public class GetCharactersHandlerTests
     {
+        private readonly Mock<ICharacterRepository> _mockRepo;
+        private readonly Mock<IMapper> _mockMapper;
+
+        public GetCharactersHandlerTests()
+        {
+            _mockRepo = new Mock<ICharacterRepository>();
+            _mockMapper = new Mock<IMapper>();
+        }
+
         #region Success Cases
         [Fact]
         public async Task Handle_ShouldReturnListOfCharacterDto_WhenCharactersExist()
@@ -29,14 +38,11 @@ namespace MedievalGame.Tests.Application.Characters.Queries
                 Defense = c.Defense
             }).ToList();
 
-            var mockRepo = new Mock<ICharacterRepository>();
-            var mockMapper = new Mock<IMapper>();
+            _mockRepo.Setup(r => r.GetAllAsync()).ReturnsAsync(characters);
 
-            mockRepo.Setup(r => r.GetAllAsync()).ReturnsAsync(characters);
+            _mockMapper.Setup(m => m.Map<List<CharacterDto>>(characters)).Returns(expectedDtos);
 
-            mockMapper.Setup(m => m.Map<List<CharacterDto>>(characters)).Returns(expectedDtos);
-
-            var handler = new GetCharactersHandler(mockRepo.Object, mockMapper.Object);
+            var handler = new GetCharactersHandler(_mockRepo.Object, _mockMapper.Object);
 
             var result = await handler.Handle(new GetCharacterQuery(), CancellationToken.None);
 
@@ -51,14 +57,12 @@ namespace MedievalGame.Tests.Application.Characters.Queries
         [Fact]
         public async Task Handle_ShouldReturnEmptyList_WhenNoCharactersExist()
         {
-            var mockRepo = new Mock<ICharacterRepository>();
-            var mockMapper = new Mock<IMapper>();
 
-            mockRepo.Setup(r => r.GetAllAsync()).ReturnsAsync((List<Character>)null);
+            _mockRepo.Setup(r => r.GetAllAsync()).ReturnsAsync((List<Character>)null);
 
-            mockMapper.Setup(m => m.Map<List<CharacterDto>>(It.IsAny<List<Character>>())).Returns(new List<CharacterDto>());
+            _mockMapper.Setup(m => m.Map<List<CharacterDto>>(It.IsAny<List<Character>>())).Returns(new List<CharacterDto>());
 
-            var handler = new GetCharactersHandler(mockRepo.Object, mockMapper.Object);
+            var handler = new GetCharactersHandler(_mockRepo.Object, _mockMapper.Object);
             var result = await handler.Handle(new GetCharacterQuery(), CancellationToken.None);
 
             result.Should().BeEmpty();

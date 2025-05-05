@@ -23,6 +23,5 @@ namespace MedievalGame.Application.Features.Characters.Commands.AssignWeapon
 
             return mapper.Map<CharacterDto>(character);
         }
-
     }
 }

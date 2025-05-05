@@ -13,6 +13,15 @@ namespace MedievalGame.Tests.Application.Characters.Queries
     public class GetCharacterByIdHandlerTests
     {
 
+        private readonly Mock<ICharacterRepository> _mockRepo;
+        private readonly Mock<IMapper> _mockMapper;
+
+        public GetCharacterByIdHandlerTests()
+        {
+            _mockRepo = new Mock<ICharacterRepository>();
+            _mockMapper = new Mock<IMapper>();
+        }
+
         #region Success Cases
         [Fact]
         public async Task Handle_ShouldReturnCharacterDto_WhenCharacterExists()
@@ -39,19 +48,16 @@ namespace MedievalGame.Tests.Application.Characters.Queries
                 Defense = 30
             };
 
-            var mockRepo = new Mock<ICharacterRepository>();
-            var mockMapper = new Mock<IMapper>();
+            _mockRepo.Setup(r => r.GetByIdAsync(characterId)).ReturnsAsync(character);
 
-            mockRepo.Setup(r => r.GetByIdAsync(characterId)).ReturnsAsync(character);
+            _mockMapper.Setup(m => m.Map<CharacterDto>(character)).Returns(expectedDto);
 
-            mockMapper.Setup(m => m.Map<CharacterDto>(character)).Returns(expectedDto);
-
-            var handler = new GetCharacterByIdHandler(mockRepo.Object, mockMapper.Object);
+            var handler = new GetCharacterByIdHandler(_mockRepo.Object, _mockMapper.Object);
 
             var result = await handler.Handle(new GetCharacterByIdQuery(characterId), CancellationToken.None);
 
             result.Should().BeEquivalentTo(expectedDto);
-            mockRepo.Verify(r => r.GetByIdAsync(characterId), Times.Once);
+            _mockRepo.Verify(r => r.GetByIdAsync(characterId), Times.Once);
         }
 
         #endregion
@@ -63,12 +69,9 @@ namespace MedievalGame.Tests.Application.Characters.Queries
         {
             var characterId = Guid.NewGuid();
 
-            var mockRepo = new Mock<ICharacterRepository>();
-            var mockMapper = new Mock<IMapper>();
+            _mockRepo.Setup(r => r.GetByIdAsync(characterId)).ReturnsAsync((Character)null);
 
-            mockRepo.Setup(r => r.GetByIdAsync(characterId)).ReturnsAsync((Character)null);
-
-            var handler = new GetCharacterByIdHandler(mockRepo.Object, mockMapper.Object);
+            var handler = new GetCharacterByIdHandler(_mockRepo.Object, _mockMapper.Object);
 
             await Assert.ThrowsAsync<NotFoundException>(() =>
                 handler.Handle(new GetCharacterByIdQuery(characterId), CancellationToken.None));

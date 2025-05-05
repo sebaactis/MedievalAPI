@@ -1,0 +1,8 @@
+2025-05-05 08:19:49.164 -03:00 [INF] 📥 Request to GET /scalar/v1 / 📤 Response: 200 / 📦 Message: No message or invalid JSON
+2025-05-05 08:19:49.444 -03:00 [INF] 📥 Request to GET /scalar/scalar.aspnetcore.js / 📤 Response: 304 / 📦 Message: No message or invalid JSON
+2025-05-05 08:19:49.594 -03:00 [INF] 📥 Request to GET /scalar/scalar.js / 📤 Response: 304 / 📦 Message: No message or invalid JSON
+2025-05-05 08:19:50.020 -03:00 [INF] 📥 Request to GET /openapi/v1.json / 📤 Response: 200 / 📦 Message: No message or invalid JSON
+2025-05-05 08:19:50.605 -03:00 [INF] 📥 Request to GET /favicon.ico / 📤 Response: 404 / 📦 Message: No message or invalid JSON
+2025-05-05 08:20:10.847 -03:00 [INF] 📥 Request to GET /api/characters/v1 / 📤 Response: 200 / 📦 Message: Characters retrieved successfully
+2025-05-05 08:20:37.508 -03:00 [INF] 📥 Request to GET /api/Item / 📤 Response: 200 / 📦 Message: Items retrieved successfully
+2025-05-05 08:20:55.630 -03:00 [INF] 📥 Request to POST /api/characters/v1/assignment/b506bae0-b2bd-4397-d08a-08dd87f169a3/assign-item/922b7d25-f182-4fb8-b901-08dd833c506a / 📤 Response: 200 / 📦 Message: Item assigned to character successfully

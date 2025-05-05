@@ -12,6 +12,18 @@ namespace MedievalGame.Tests.Application.Characters.Commands
 {
     public class UpdateCharacterHandlerTests
     {
+
+        private readonly Mock<ICharacterRepository> _mockRepo;
+        private readonly Mock<IMapper> _mockMapper;
+        private readonly Mock<IMediator> _mockMediator;
+
+        public UpdateCharacterHandlerTests()
+        {
+            _mockRepo = new Mock<ICharacterRepository>();
+            _mockMapper = new Mock<IMapper>();
+            _mockMediator = new Mock<IMediator>();
+        }
+
         #region Success Cases
         [Fact]
         public async Task Handle_ShouldReturnUpdatedCharacterDto_WhenCharacterExistsAndDataIsValid()
@@ -50,22 +62,18 @@ namespace MedievalGame.Tests.Application.Characters.Commands
                 Defense = 100
             };
 
-            var mockRepo = new Mock<ICharacterRepository>();
-            var mockMapper = new Mock<IMapper>();
-            var mockMediator = new Mock<IMediator>();
+            _mockRepo.Setup(r => r.GetByIdAsync(characterId)).ReturnsAsync(existingCharacter);
+            _mockRepo.Setup(r => r.UpdateAsync(It.IsAny<Character>())).ReturnsAsync(updatedCharacter);
 
-            mockRepo.Setup(r => r.GetByIdAsync(characterId)).ReturnsAsync(existingCharacter);
-            mockRepo.Setup(r => r.UpdateAsync(It.IsAny<Character>())).ReturnsAsync(updatedCharacter);
+            _mockMapper.Setup(m => m.Map<CharacterDto>(updatedCharacter)).Returns(expectedDto);
 
-            mockMapper.Setup(m => m.Map<CharacterDto>(updatedCharacter)).Returns(expectedDto);
-
-            var handler = new UpdateCharacterHandler(mockRepo.Object, mockMapper.Object, mockMediator.Object);
+            var handler = new UpdateCharacterHandler(_mockRepo.Object, _mockMapper.Object, _mockMediator.Object);
 
             var result = await handler.Handle(command, CancellationToken.None);
 
             result.Should().BeEquivalentTo(expectedDto);
-            mockRepo.Verify(r => r.UpdateAsync(It.IsAny<Character>()), Times.Once);
-            mockMediator.Verify(m => m.Publish(It.IsAny<UpdateCharacterNotification>(), It.IsAny<CancellationToken>()), Times.Once);
+            _mockRepo.Verify(r => r.UpdateAsync(It.IsAny<Character>()), Times.Once);
+            _mockMediator.Verify(m => m.Publish(It.IsAny<UpdateCharacterNotification>(), It.IsAny<CancellationToken>()), Times.Once);
         }
         #endregion
 
@@ -77,13 +85,9 @@ namespace MedievalGame.Tests.Application.Characters.Commands
             var characterId = Guid.NewGuid();
             var command = new UpdateCharacterCommand(characterId, "Name", 100, 100, 100, 1, Guid.NewGuid());
 
-            var mockRepo = new Mock<ICharacterRepository>();
-            var mockMapper = new Mock<IMapper>();
-            var mockMediator = new Mock<IMediator>();
+            _mockRepo.Setup(r => r.GetByIdAsync(characterId)).ReturnsAsync((Character?)null);
 
-            mockRepo.Setup(r => r.GetByIdAsync(characterId)).ReturnsAsync((Character?)null);
-
-            var handler = new UpdateCharacterHandler(mockRepo.Object, mockMapper.Object, mockMediator.Object);
+            var handler = new UpdateCharacterHandler(_mockRepo.Object, _mockMapper.Object, _mockMediator.Object);
 
             await Assert.ThrowsAsync<NotFoundException>(() => handler.Handle(command, CancellationToken.None));
         }
