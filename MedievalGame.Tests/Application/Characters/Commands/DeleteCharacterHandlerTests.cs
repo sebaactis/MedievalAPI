@@ -16,6 +16,13 @@ namespace MedievalGame.Tests.Application.Characters.Commands
         private readonly Mock<IMapper> _mockMapper;
         private readonly Mock<IMediator> _mockMediator;
 
+        public DeleteCharacterHandlerTests()
+        {
+            _mockRepo = new Mock<ICharacterRepository>();
+            _mockMapper = new Mock<IMapper>();
+            _mockMediator = new Mock<IMediator>();
+        }
+
         #region Success Cases
         [Fact]
         public async Task Handle_ShouldReturnDeletedCharacterDto_WhenCharacterExists()

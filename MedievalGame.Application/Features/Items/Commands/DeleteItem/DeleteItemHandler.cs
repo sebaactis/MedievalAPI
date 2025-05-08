@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using MediatR;
 using MedievalGame.Application.Features.Items.Dtos;
+using MedievalGame.Domain.Exceptions;
 using MedievalGame.Domain.Interfaces;
 
 namespace MedievalGame.Application.Features.Items.Commands.DeleteItem
@@ -9,10 +10,13 @@ namespace MedievalGame.Application.Features.Items.Commands.DeleteItem
     {
         public async Task<ItemDto> Handle(DeleteItemCommand request, CancellationToken cancellationToken)
         {
+            if (request.Id == Guid.Empty)
+                throw new ArgumentException();
+
             var item = await repository.GetByIdAsync(request.Id);
             if (item == null)
             {
-                throw new KeyNotFoundException($"Item with ID {request.Id} not found.");
+                throw new NotFoundException($"Item with ID {request.Id} not found.");
             }
             var deletedItem = await repository.DeleteAsync(request.Id);
             var itemDto = mapper.Map<ItemDto>(deletedItem);

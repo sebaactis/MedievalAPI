@@ -10,6 +10,9 @@ namespace MedievalGame.Application.Features.Weapons.Commands.DeleteWeapon
     {
         public async Task<WeaponDto> Handle(DeleteWeaponCommand request, CancellationToken cancellationToken)
         {
+            if (request.Id == Guid.Empty)
+                throw new ArgumentException();
+
             var weapon = await weaponRepository.GetByIdAsync(request.Id);
             if (weapon == null)
             {

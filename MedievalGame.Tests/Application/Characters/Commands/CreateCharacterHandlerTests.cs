@@ -59,7 +59,7 @@ namespace MedievalGame.Tests.Application.Characters.Commands
 
             result.Should().NotBeNull();
             result.Id.Should().Be(character.Id);
-            result.Name.Should().Be("John Pepen");
+            result.Name.Should().Be(command.Name);
 
             _mockRepo.Verify(r => r.AddAsync(It.IsAny<Character>()), Times.Once);
             _mockMediator.Verify(p => p.Publish(It.IsAny<CreateCharacterNotification>(), It.IsAny<CancellationToken>()), Times.Once);
