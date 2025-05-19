@@ -15,6 +15,8 @@ namespace MedievalGame.Infraestructure.Data
         public DbSet<CharacterAuditLog> CharacterAuditLogs => Set<CharacterAuditLog>();
         public DbSet<ItemAuditLog> ItemAuditLogs => Set<ItemAuditLog>();
         public DbSet<WeaponAuditLog> WeaponAuditLogs => Set<WeaponAuditLog>();
+        public DbSet<User> Users => Set<User>();
+        public DbSet<UserAuditLog> UserAuditLogs => Set<UserAuditLog>();
 
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
@@ -30,6 +32,21 @@ namespace MedievalGame.Infraestructure.Data
             ConfigureWeaponTypeModel(modelBuilder);
             ConfigureCharacterClassModel(modelBuilder);
             ConfiguraItemTypeModel(modelBuilder);
+            ConfiguraUserModel(modelBuilder);
+        }
+
+        private static void ConfiguraUserModel(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<User>(entity =>
+            {
+                entity.HasKey(u => u.Id);
+                entity.Property(u => u.Username).IsRequired().HasMaxLength(20);
+                entity.Property(u => u.Password).IsRequired();
+                entity.HasMany(u => u.Characters)
+                      .WithOne(c => c.User)
+                      .HasForeignKey(c => c.UserId)
+                      .OnDelete(DeleteBehavior.Cascade);
+            });
         }
 
         private static void ConfigureCharacterModel(ModelBuilder modelBuilder)

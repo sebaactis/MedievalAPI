@@ -6,10 +6,12 @@ using MedievalGame.Application.Features.Characters.Commands.UpdateCharacter;
 using MedievalGame.Application.Features.Characters.Dtos;
 using MedievalGame.Application.Features.Characters.Queries.GetCharacter;
 using MedievalGame.Application.Features.Characters.Queries.GetCharacters;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 [Route("api/characters/v1")]
 [ApiController]
+[Authorize]
 public class CharactersController(IMediator mediator) : ControllerBase
 {
 

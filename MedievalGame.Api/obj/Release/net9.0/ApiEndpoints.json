@@ -1,5 +1,57 @@
 [
   {
+    "ContainingType": "MedievalGame.Api.Controllers.AuthController",
+    "Method": "Login",
+    "RelativePath": "api/Auth/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "command",
+        "Type": "MedievalGame.Application.Features.Auth.Queries.Login.LoginUserQuery",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "MedievalGame.Api.Responses.ApiResponse\u00601[[MedievalGame.Application.Features.Auth.Responses.AuthResponse, MedievalGame.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "MedievalGame.Api.Controllers.AuthController",
+    "Method": "Register",
+    "RelativePath": "api/Auth/register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "command",
+        "Type": "MedievalGame.Application.Features.Auth.Commands.Register.RegisterUserCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "MedievalGame.Api.Responses.ApiResponse\u00601[[MedievalGame.Application.Features.Auth.Dto.UserDto, MedievalGame.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "CharactersController",
     "Method": "GetCharacters",
     "RelativePath": "api/characters/v1",

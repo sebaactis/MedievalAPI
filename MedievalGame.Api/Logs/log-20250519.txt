@@ -1,0 +1,25 @@
+2025-05-19 08:37:03.905 -03:00 [INF] 📥 Request to GET /scalar/v1 / 📤 Response: 200 / 📦 Message: No message or invalid JSON
+2025-05-19 08:37:04.083 -03:00 [INF] 📥 Request to GET /scalar/scalar.aspnetcore.js / 📤 Response: 304 / 📦 Message: No message or invalid JSON
+2025-05-19 08:37:04.130 -03:00 [INF] 📥 Request to GET /scalar/scalar.js / 📤 Response: 304 / 📦 Message: No message or invalid JSON
+2025-05-19 08:37:04.498 -03:00 [INF] 📥 Request to GET /openapi/v1.json / 📤 Response: 200 / 📦 Message: No message or invalid JSON
+2025-05-19 08:37:05.026 -03:00 [INF] 📥 Request to GET /favicon.ico / 📤 Response: 404 / 📦 Message: No message or invalid JSON
+2025-05-19 08:37:21.600 -03:00 [INF] 📥 Request to POST /api/Auth/register / 📤 Response: 400 / 📦 Message: Validation errors
+2025-05-19 08:37:27.424 -03:00 [INF] 📥 Request to POST /api/Auth/register / 📤 Response: 400 / 📦 Message: Username: Mayito is already in use
+2025-05-19 08:38:07.920 -03:00 [INF] 📥 Request to POST /api/Auth/register / 📤 Response: 400 / 📦 Message: Username: Mayito is already in use
+2025-05-19 08:38:22.045 -03:00 [INF] 📥 Request to POST /api/Auth/register / 📤 Response: 400 / 📦 Message: Username: Mayito2 is already in use
+2025-05-19 08:40:28.470 -03:00 [INF] 📥 Request to POST /api/Auth/register / 📤 Response: 400 / 📦 Message: Username: Mayito2 is already in use
+2025-05-19 08:41:50.054 -03:00 [INF] 📥 Request to POST /api/Auth/register / 📤 Response: 500 / 📦 Message: A database error occurred.
+2025-05-19 08:42:58.569 -03:00 [INF] 📥 Request to POST /api/Auth/register / 📤 Response: 500 / 📦 Message: A database error occurred.
+2025-05-19 08:46:34.671 -03:00 [INF] 📥 Request to POST /api/Auth/register / 📤 Response: 200 / 📦 Message: User registered successfully
+2025-05-19 12:01:47.375 -03:00 [INF] 📥 Request to GET /scalar/v1 / 📤 Response: 200 / 📦 Message: No message or invalid JSON
+2025-05-19 12:01:47.591 -03:00 [INF] 📥 Request to GET /scalar/scalar.js / 📤 Response: 304 / 📦 Message: No message or invalid JSON
+2025-05-19 12:01:47.639 -03:00 [INF] 📥 Request to GET /scalar/scalar.aspnetcore.js / 📤 Response: 304 / 📦 Message: No message or invalid JSON
+2025-05-19 12:01:47.959 -03:00 [INF] 📥 Request to GET /openapi/v1.json / 📤 Response: 200 / 📦 Message: No message or invalid JSON
+2025-05-19 12:02:03.226 -03:00 [INF] 📥 Request to POST /api/Auth/login / 📤 Response: 500 / 📦 Message: An unexpected error occurred.
+2025-05-19 12:04:28.202 -03:00 [INF] 📥 Request to GET /scalar/v1 / 📤 Response: 200 / 📦 Message: No message or invalid JSON
+2025-05-19 12:04:28.392 -03:00 [INF] 📥 Request to GET /scalar/scalar.js / 📤 Response: 304 / 📦 Message: No message or invalid JSON
+2025-05-19 12:04:28.431 -03:00 [INF] 📥 Request to GET /scalar/scalar.aspnetcore.js / 📤 Response: 304 / 📦 Message: No message or invalid JSON
+2025-05-19 12:04:28.714 -03:00 [INF] 📥 Request to GET /openapi/v1.json / 📤 Response: 200 / 📦 Message: No message or invalid JSON
+2025-05-19 12:04:37.735 -03:00 [INF] 📥 Request to POST /api/Auth/login / 📤 Response: 401 / 📦 Message: Invalid credentials
+2025-05-19 12:04:46.189 -03:00 [INF] 📥 Request to POST /api/Auth/login / 📤 Response: 200 / 📦 Message: User login successfully
+2025-05-19 12:10:04.534 -03:00 [INF] 📥 Request to POST /api/Auth/login / 📤 Response: 200 / 📦 Message: User login successfully

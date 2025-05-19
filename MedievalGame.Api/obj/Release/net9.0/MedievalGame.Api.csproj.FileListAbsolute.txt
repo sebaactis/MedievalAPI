@@ -367,3 +367,5 @@ D:\Descargas\Seba\Proyects\C#\MedievalGame\MedievalGame.Api\bin\Release\net9.0\S
 D:\Descargas\Seba\Proyects\C#\MedievalGame\MedievalGame.Api\bin\Release\net9.0\Serilog.Formatting.Compact.dll
 D:\Descargas\Seba\Proyects\C#\MedievalGame\MedievalGame.Api\bin\Release\net9.0\Serilog.Settings.Configuration.dll
 D:\Descargas\Seba\Proyects\C#\MedievalGame\MedievalGame.Api\bin\Release\net9.0\Serilog.Sinks.Debug.dll
+D:\Descargas\Seba\Proyects\C#\MedievalGame\MedievalGame.Api\bin\Release\net9.0\BCrypt.Net-Next.dll
+D:\Descargas\Seba\Proyects\C#\MedievalGame\MedievalGame.Api\bin\Release\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

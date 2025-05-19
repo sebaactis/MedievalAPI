@@ -2,18 +2,41 @@ using FluentValidation;
 using MedievalGame.Api.Middlewares;
 using MedievalGame.Api.Responses;
 using MedievalGame.Application.Features.Characters.Commands.CreateCharacter;
+using MedievalGame.Application.Interfaces;
 using MedievalGame.Application.Mapping;
 using MedievalGame.Domain.Exceptions;
 using MedievalGame.Domain.Interfaces;
 using MedievalGame.Infraestructure.Data;
 using MedievalGame.Infraestructure.Repositories;
-using Microsoft.AspNetCore.Diagnostics;
+using MedievalGame.Infraestructure.Security;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using Scalar.AspNetCore;
 using Serilog;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
+var configuration = builder.Configuration;
+var jwtSettings = configuration.GetSection("Jwt");
 
+builder.Services
+    .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true,
+            ValidIssuer = jwtSettings["Issuer"],
+            ValidAudience = jwtSettings["Audience"],
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSettings["Key"]!)),
+        };
+    });
+
+builder.Services.AddAuthorization();
 
 builder.Services.AddOpenApi();
 builder.Services.AddControllers();
@@ -36,6 +59,10 @@ builder.Services.AddScoped<IItemRepository, ItemRepository>();
 builder.Services.AddScoped<ICharacterAuditRepository, CharacterAuditRepository>();
 builder.Services.AddScoped<IItemAuditRepository, ItemAuditRepository>();
 builder.Services.AddScoped<IWeaponAuditRepository, WeaponAuditRepository>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IUserAuditRepository, UserAuditRepository>();
+builder.Services.AddScoped<IJwtProvider, JwtProvider>();
+builder.Services.AddScoped<IPasswordHasher, PasswordHasher>();
 
 // AutoMapper
 builder.Services.AddAutoMapper(config => config.AddMaps(typeof(MappingProfile).Assembly));
@@ -78,6 +105,7 @@ using (var scope = app.Services.CreateScope())
 }
 
 app.UseHttpsRedirection();
+app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
 

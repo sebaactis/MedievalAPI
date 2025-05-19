@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using MedievalGame.Application.Features.Auth.Dto;
 using MedievalGame.Application.Features.Characters.Commands.UpdateCharacter;
 using MedievalGame.Application.Features.Characters.Dtos;
 using MedievalGame.Application.Features.Items.Commands.UpdateItem;
@@ -54,6 +55,8 @@ namespace MedievalGame.Application.Mapping
                 .ForMember(dest => dest.Value, opt => opt.Condition(src => src.Value != null))
                 .ForMember(dest => dest.RarityId, opt => opt.Condition(src => src.RarityId != null))
                 .ForMember(dest => dest.ItemTypeId, opt => opt.Condition(src => src.ItemTypeId != null));
+
+            CreateMap<User, UserDto>();
         }
     }
 }

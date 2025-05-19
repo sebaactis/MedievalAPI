@@ -12,6 +12,8 @@
         public CharacterClass CharacterClass { get; set; } = null!;
         public List<Weapon> Weapons { get; set; }
         public List<CharacterItem> CharacterItems { get; set; } = new();
+        public Guid UserId { get; set; }
+        public User User { get; set; }
 
         public void AssignItem(Item item, int quantity)
         {

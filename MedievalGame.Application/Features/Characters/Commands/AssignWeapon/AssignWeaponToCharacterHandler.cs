@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using MediatR;
-using MedievalGame.Application.Features.Characters.Commands.AssignItem;
 using MedievalGame.Application.Features.Characters.Dtos;
 using MedievalGame.Domain.Exceptions;
 using MedievalGame.Domain.Interfaces;

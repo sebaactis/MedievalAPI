@@ -34,3 +34,5 @@ D:\Descargas\Seba\Proyects\C#\MedievalGame\MedievalGame.Infraestructure\obj\Rele
 D:\Descargas\Seba\Proyects\C#\MedievalGame\MedievalGame.Infraestructure\obj\Release\net9.0\MedievalGame.Infraestructure.pdb
 D:\Descargas\Seba\Proyects\C#\MedievalGame\MedievalGame.Infraestructure\obj\Release\net9.0\MedievalGame.Infraestructure.genruntimeconfig.cache
 D:\Descargas\Seba\Proyects\C#\MedievalGame\MedievalGame.Infraestructure\obj\Release\net9.0\ref\MedievalGame.Infraestructure.dll
+D:\Descargas\Seba\Proyects\C#\MedievalGame\MedievalGame.Infraestructure\bin\Release\net9.0\MedievalGame.Application.dll
+D:\Descargas\Seba\Proyects\C#\MedievalGame\MedievalGame.Infraestructure\bin\Release\net9.0\MedievalGame.Application.pdb

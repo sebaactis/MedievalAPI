@@ -63,9 +63,14 @@ namespace MedievalGame.Infraestructure.Migrations
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
 
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.HasKey("Id");
 
                     b.HasIndex("CharacterClassId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Characters");
                 });
@@ -229,6 +234,51 @@ namespace MedievalGame.Infraestructure.Migrations
                     b.ToTable("Rarities");
                 });
 
+            modelBuilder.Entity("MedievalGame.Domain.Entities.User", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Username")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("MedievalGame.Domain.Entities.UserAuditLog", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("OperationType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Username")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("UserAuditLogs");
+                });
+
             modelBuilder.Entity("MedievalGame.Domain.Entities.Weapon", b =>
                 {
                     b.Property<Guid>("Id")
@@ -329,7 +379,15 @@ namespace MedievalGame.Infraestructure.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
+                    b.HasOne("MedievalGame.Domain.Entities.User", "User")
+                        .WithMany("Characters")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("CharacterClass");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("MedievalGame.Domain.Entities.CharacterItem", b =>
@@ -414,6 +472,11 @@ namespace MedievalGame.Infraestructure.Migrations
                     b.Navigation("Items");
 
                     b.Navigation("Weapons");
+                });
+
+            modelBuilder.Entity("MedievalGame.Domain.Entities.User", b =>
+                {
+                    b.Navigation("Characters");
                 });
 
             modelBuilder.Entity("MedievalGame.Domain.Entities.WeaponType", b =>

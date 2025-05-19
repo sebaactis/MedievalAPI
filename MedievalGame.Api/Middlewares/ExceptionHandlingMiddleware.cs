@@ -36,6 +36,11 @@ namespace MedievalGame.Api.Middlewares
                     ApiResponse<object>.ErrorResponse(notFoundEx.Message, StatusCodes.Status404NotFound, traceId)
                 ),
 
+                UnauthorizedException unauthEx => (
+                    StatusCodes.Status401Unauthorized,
+                    ApiResponse<object>.ErrorResponse(unauthEx.Message, StatusCodes.Status401Unauthorized, traceId)
+                ),
+
                 DomainException domainEx => (
                     domainEx.StatusCode,
                     ApiResponse<object>.ErrorResponse(domainEx.Message, domainEx.StatusCode, traceId)
