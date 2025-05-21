@@ -1,0 +1,60 @@
+2025-05-21 18:21:42.267 -03:00 [INF] 📥 Request to GET /scalar/v1 / 📤 Response: 200 / 📦 Message: No message or invalid JSON
+2025-05-21 18:21:42.550 -03:00 [INF] 📥 Request to GET /scalar/scalar.aspnetcore.js / 📤 Response: 304 / 📦 Message: No message or invalid JSON
+2025-05-21 18:21:42.599 -03:00 [INF] 📥 Request to GET /scalar/scalar.js / 📤 Response: 304 / 📦 Message: No message or invalid JSON
+2025-05-21 18:21:42.950 -03:00 [INF] 📥 Request to GET /openapi/v1.json / 📤 Response: 200 / 📦 Message: No message or invalid JSON
+2025-05-21 18:21:43.882 -03:00 [INF] 📥 Request to GET /favicon.ico / 📤 Response: 404 / 📦 Message: No message or invalid JSON
+2025-05-21 18:23:05.539 -03:00 [INF] 📥 Request to POST /api/Auth/register / 📤 Response: 200 / 📦 Message: User registered successfully
+2025-05-21 18:23:22.682 -03:00 [INF] 📥 Request to POST /api/Auth/login / 📤 Response: 200 / 📦 Message: User login successfully
+2025-05-21 18:24:36.335 -03:00 [INF] 📥 Request to GET /api/characters/v1 / 📤 Response: 200 / 📦 Message: Characters retrieved successfully
+2025-05-21 18:31:22.479 -03:00 [INF] 📥 Request to GET /api/characters/v1 / 📤 Response: 200 / 📦 Message: Characters retrieved successfully
+2025-05-21 19:04:23.036 -03:00 [INF] 📥 Request to GET /favicon.ico / 📤 Response: 404 / 📦 Message: No message or invalid JSON
+2025-05-21 19:04:43.295 -03:00 [INF] 📥 Request to GET /scalar/v1 / 📤 Response: 200 / 📦 Message: No message or invalid JSON
+2025-05-21 19:04:43.457 -03:00 [INF] 📥 Request to GET /scalar/scalar.aspnetcore.js / 📤 Response: 304 / 📦 Message: No message or invalid JSON
+2025-05-21 19:04:43.508 -03:00 [INF] 📥 Request to GET /scalar/scalar.js / 📤 Response: 304 / 📦 Message: No message or invalid JSON
+2025-05-21 19:04:43.780 -03:00 [INF] 📥 Request to GET /openapi/v1.json / 📤 Response: 200 / 📦 Message: No message or invalid JSON
+2025-05-21 19:06:41.301 -03:00 [INF] 📥 Request to GET /scalar/v1 / 📤 Response: 200 / 📦 Message: No message or invalid JSON
+2025-05-21 19:06:41.466 -03:00 [INF] 📥 Request to GET /scalar/scalar.js / 📤 Response: 304 / 📦 Message: No message or invalid JSON
+2025-05-21 19:06:41.510 -03:00 [INF] 📥 Request to GET /scalar/scalar.aspnetcore.js / 📤 Response: 304 / 📦 Message: No message or invalid JSON
+2025-05-21 19:06:41.781 -03:00 [INF] 📥 Request to GET /openapi/v1.json / 📤 Response: 200 / 📦 Message: No message or invalid JSON
+2025-05-21 19:08:30.933 -03:00 [INF] 📥 Request to GET /scalar/v1 / 📤 Response: 200 / 📦 Message: No message or invalid JSON
+2025-05-21 19:08:31.142 -03:00 [INF] 📥 Request to GET /scalar/scalar.aspnetcore.js / 📤 Response: 304 / 📦 Message: No message or invalid JSON
+2025-05-21 19:08:31.187 -03:00 [INF] 📥 Request to GET /scalar/scalar.js / 📤 Response: 304 / 📦 Message: No message or invalid JSON
+2025-05-21 19:08:31.438 -03:00 [INF] 📥 Request to GET /openapi/v1.json / 📤 Response: 200 / 📦 Message: No message or invalid JSON
+2025-05-21 19:08:57.462 -03:00 [INF] 📥 Request to POST /api/Auth/login / 📤 Response: 200 / 📦 Message: User login successfully
+2025-05-21 19:10:37.057 -03:00 [INF] 📥 Request to GET /api/characters/v1 / 📤 Response: 200 / 📦 Message: Characters retrieved successfully
+2025-05-21 19:10:52.831 -03:00 [INF] 📥 Request to GET /api/characters/v1 / 📤 Response: 200 / 📦 Message: Characters retrieved successfully
+2025-05-21 19:12:53.217 -03:00 [INF] 📥 Request to GET /scalar/v1 / 📤 Response: 200 / 📦 Message: No message or invalid JSON
+2025-05-21 19:12:53.438 -03:00 [INF] 📥 Request to GET /scalar/scalar.js / 📤 Response: 304 / 📦 Message: No message or invalid JSON
+2025-05-21 19:12:53.488 -03:00 [INF] 📥 Request to GET /scalar/scalar.aspnetcore.js / 📤 Response: 304 / 📦 Message: No message or invalid JSON
+2025-05-21 19:12:53.762 -03:00 [INF] 📥 Request to GET /openapi/v1.json / 📤 Response: 200 / 📦 Message: No message or invalid JSON
+2025-05-21 19:13:13.390 -03:00 [INF] 📥 Request to POST /api/Auth/login / 📤 Response: 200 / 📦 Message: User login successfully
+2025-05-21 19:14:10.912 -03:00 [INF] 📥 Request to GET /api/characters/v1 / 📤 Response: 200 / 📦 Message: Characters retrieved successfully
+2025-05-21 19:26:34.783 -03:00 [INF] 📥 Request to GET /scalar/v1 / 📤 Response: 200 / 📦 Message: No message or invalid JSON
+2025-05-21 19:26:34.966 -03:00 [INF] 📥 Request to GET /scalar/scalar.aspnetcore.js / 📤 Response: 304 / 📦 Message: No message or invalid JSON
+2025-05-21 19:26:35.036 -03:00 [INF] 📥 Request to GET /scalar/scalar.js / 📤 Response: 304 / 📦 Message: No message or invalid JSON
+2025-05-21 19:26:35.391 -03:00 [INF] 📥 Request to GET /openapi/v1.json / 📤 Response: 200 / 📦 Message: No message or invalid JSON
+2025-05-21 19:26:36.175 -03:00 [INF] 📥 Request to GET /favicon.ico / 📤 Response: 404 / 📦 Message: No message or invalid JSON
+2025-05-21 19:26:54.736 -03:00 [INF] 📥 Request to POST /api/Auth/login / 📤 Response: 200 / 📦 Message: User login successfully
+2025-05-21 19:27:15.905 -03:00 [INF] 📥 Request to POST /api/characters/v1 / 📤 Response: 400 / 📦 Message: One or more validation errors occurred.
+- request: The request field is required.
+- $.characterClassId: The JSON value could not be converted to MedievalGame.Application.Features.Characters.Commands.CreateCharacter.CreateCharacterCommand. Path: $.characterClassId | LineNumber: 6 | BytePositionInLine: 24.
+
+2025-05-21 19:27:55.501 -03:00 [INF] 📥 Request to POST /api/characters/v1 / 📤 Response: 400 / 📦 Message: One or more validation errors occurred.
+- request: The request field is required.
+- $.userId: The JSON value could not be converted to MedievalGame.Application.Features.Characters.Commands.CreateCharacter.CreateCharacterCommand. Path: $.userId | LineNumber: 7 | BytePositionInLine: 14.
+
+2025-05-21 19:28:14.248 -03:00 [INF] 📥 Request to POST /api/characters/v1 / 📤 Response: 401 / 📦 Message: Invalid or missing user ID in token
+2025-05-21 19:33:36.516 -03:00 [INF] 📥 Request to POST /api/characters/v1 / 📤 Response: 500 / 📦 Message: A database error occurred.
+2025-05-21 19:34:00.558 -03:00 [INF] 📥 Request to GET /scalar/v1 / 📤 Response: 200 / 📦 Message: No message or invalid JSON
+2025-05-21 19:34:00.776 -03:00 [INF] 📥 Request to GET /scalar/scalar.aspnetcore.js / 📤 Response: 304 / 📦 Message: No message or invalid JSON
+2025-05-21 19:34:00.824 -03:00 [INF] 📥 Request to GET /scalar/scalar.js / 📤 Response: 304 / 📦 Message: No message or invalid JSON
+2025-05-21 19:34:01.090 -03:00 [INF] 📥 Request to GET /openapi/v1.json / 📤 Response: 200 / 📦 Message: No message or invalid JSON
+2025-05-21 19:34:12.418 -03:00 [INF] 📥 Request to POST /api/Auth/login / 📤 Response: 200 / 📦 Message: User login successfully
+2025-05-21 19:34:37.659 -03:00 [INF] 📥 Request to POST /api/characters/v1 / 📤 Response: 400 / 📦 Message: One or more validation errors occurred.
+- request: The request field is required.
+- $.characterClassId: The JSON value could not be converted to System.Guid. Path: $.characterClassId | LineNumber: 6 | BytePositionInLine: 24.
+
+2025-05-21 19:34:49.613 -03:00 [INF] 📥 Request to POST /api/characters/v1 / 📤 Response: 500 / 📦 Message: A database error occurred.
+2025-05-21 19:36:39.114 -03:00 [INF] 📥 Request to POST /api/characters/v1 / 📤 Response: 500 / 📦 Message: A database error occurred.
+2025-05-21 19:40:23.708 -03:00 [INF] 📥 Request to POST /api/characters/v1 / 📤 Response: 500 / 📦 Message: A database error occurred.
+2025-05-21 19:41:06.594 -03:00 [INF] 📥 Request to POST /api/characters/v1 / 📤 Response: 200 / 📦 Message: Character created successfully

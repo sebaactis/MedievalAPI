@@ -26,7 +26,8 @@ namespace MedievalGame.Application.Features.Characters.Commands.CreateCharacter
                     Attack = request.Attack,
                     Defense = request.Defense,
                     CharacterClassId = request.CharacterClassId,
-                    Level = request.Level
+                    Level = request.Level,
+                    UserId = request.UserId
                 };
 
                 await characterRepository.AddAsync(character);

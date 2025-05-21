@@ -15,6 +15,7 @@ using Microsoft.IdentityModel.Tokens;
 using Scalar.AspNetCore;
 using Serilog;
 using System.Text;
+using System.Text.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
@@ -27,12 +28,65 @@ builder.Services
         options.TokenValidationParameters = new TokenValidationParameters
         {
             ValidateIssuer = true,
+            ValidIssuers = new[] { jwtSettings["Issuer"]! },
             ValidateAudience = true,
+            ValidAudiences = new[] { jwtSettings["Audience"]! },
             ValidateLifetime = true,
             ValidateIssuerSigningKey = true,
             ValidIssuer = jwtSettings["Issuer"],
             ValidAudience = jwtSettings["Audience"],
             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSettings["Key"]!)),
+        };
+
+        options.Events = new JwtBearerEvents
+        {
+            OnAuthenticationFailed = context =>
+            {
+                if (!context.Response.HasStarted)
+                {
+                    context.NoResult();
+                    context.Response.StatusCode = StatusCodes.Status401Unauthorized;
+                    context.Response.ContentType = "application/json";
+
+                    var response = new ApiResponse<string>
+                    {
+                        Success = false,
+                        StatusCode = StatusCodes.Status401Unauthorized,
+                        Message = "Invalid or expired token",
+                        Errors = new[] { context.Exception.Message },
+                        TraceId = context.HttpContext.TraceIdentifier
+                    };
+
+                    var json = JsonSerializer.Serialize(response);
+                    return context.Response.WriteAsync(json);
+                }
+
+                return Task.CompletedTask;
+            },
+
+            OnChallenge = context =>
+            {
+                context.HandleResponse(); // Detiene el flujo predeterminado
+
+                if (!context.Response.HasStarted)
+                {
+                    context.Response.StatusCode = StatusCodes.Status401Unauthorized;
+                    context.Response.ContentType = "application/json";
+
+                    var response = new ApiResponse<string>
+                    {
+                        Success = false,
+                        StatusCode = StatusCodes.Status401Unauthorized,
+                        Message = "Authentication is required to access this resource",
+                        TraceId = context.HttpContext.TraceIdentifier
+                    };
+
+                    var json = JsonSerializer.Serialize(response);
+                    return context.Response.WriteAsync(json);
+                }
+
+                return Task.CompletedTask;
+            }
         };
     });
 

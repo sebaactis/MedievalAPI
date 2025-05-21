@@ -64,6 +64,11 @@ namespace MedievalGame.Infraestructure.Data
                        .HasForeignKey(e => e.CharacterClassId)
                        .OnDelete(DeleteBehavior.Restrict);
 
+                entity.HasOne(c => c.User)
+                        .WithMany(u => u.Characters)
+                        .HasForeignKey(c => c.UserId)
+                        .OnDelete(DeleteBehavior.Cascade);
+
                 entity.HasMany(c => c.Weapons)
                        .WithMany(w => w.Characters)
                        .UsingEntity<Dictionary<string, object>>(

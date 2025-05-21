@@ -10,6 +10,7 @@ namespace MedievalGame.Application.Features.Characters.Commands.CreateCharacter
             int Attack,
             int Defense,
             int Level,
-            Guid CharacterClassId
+            Guid CharacterClassId,
+            Guid UserId
         ) : IRequest<CharacterDto>;
 }

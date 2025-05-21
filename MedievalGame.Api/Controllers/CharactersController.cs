@@ -1,4 +1,6 @@
-﻿using MediatR;
+﻿using Azure.Core;
+using MediatR;
+using MedievalGame.Api.Requests.Characters;
 using MedievalGame.Api.Responses;
 using MedievalGame.Application.Features.Characters.Commands.CreateCharacter;
 using MedievalGame.Application.Features.Characters.Commands.DeleteCharacter;
@@ -8,6 +10,8 @@ using MedievalGame.Application.Features.Characters.Queries.GetCharacter;
 using MedievalGame.Application.Features.Characters.Queries.GetCharacters;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 
 [Route("api/characters/v1")]
 [ApiController]
@@ -40,8 +44,26 @@ public class CharactersController(IMediator mediator) : ControllerBase
 
     [HttpPost]
     public async Task<ActionResult<ApiResponse<CharacterDto>>> CreateCharacter(
-        [FromBody] CreateCharacterCommand command)
+        [FromBody] CreateCharacterRequest request)
     {
+        var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier);
+
+        if (userIdClaim == null || !Guid.TryParse(userIdClaim.Value, out Guid userId))
+        {
+            var error = ApiResponse<string>.ErrorResponse("Invalid or missing user ID in token", 401);
+            return Unauthorized(error);
+        }
+
+        var command = new CreateCharacterCommand(
+        request.Name,
+        request.Life,
+        request.Attack,
+        request.Defense,
+        request.Level,
+        request.CharacterClassId,
+        userId);
+
+
         var character = await mediator.Send(command);
         return ApiResponse<CharacterDto>.SuccessResponse(
             character,

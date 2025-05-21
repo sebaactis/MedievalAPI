@@ -80,8 +80,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "command",
-        "Type": "MedievalGame.Application.Features.Characters.Commands.CreateCharacter.CreateCharacterCommand",
+        "Name": "request",
+        "Type": "MedievalGame.Api.Requests.Characters.CreateCharacterRequest",
         "IsRequired": true
       }
     ],
