@@ -4,7 +4,6 @@ using MedievalGame.Api.Responses;
 using MedievalGame.Application.Features.Characters.Commands.CreateCharacter;
 using MedievalGame.Application.Interfaces;
 using MedievalGame.Application.Mapping;
-using MedievalGame.Domain.Exceptions;
 using MedievalGame.Domain.Interfaces;
 using MedievalGame.Infraestructure.Data;
 using MedievalGame.Infraestructure.Repositories;
@@ -20,6 +19,11 @@ using System.Text.Json;
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
 var jwtSettings = configuration.GetSection("Jwt");
+
+//builder.WebHost.ConfigureKestrel(options =>
+//{
+//    options.ListenAnyIP(5000);
+//});
 
 builder.Services
     .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -143,12 +147,8 @@ builder.Host.UseSerilog();
 
 var app = builder.Build();
 
-if (app.Environment.IsDevelopment())
-{
-    app.MapOpenApi();
-    app.MapScalarApiReference();
-}
-
+app.MapOpenApi();
+app.MapScalarApiReference();
 
 // Auto Migrations when app starts
 using (var scope = app.Services.CreateScope())

@@ -9,6 +9,18 @@ namespace MedievalGame.Infraestructure.Repositories
     {
         public async Task<User> AddAsync(User user)
         {
+            var userRole = await context.Roles.FirstOrDefaultAsync(r => r.Name == "User");
+            if (userRole == null)
+            {
+                throw new Exception("Role user not found");
+            }
+
+            user.UserRoles.Add(new UserRole
+            {
+                RoleId = userRole.Id,
+                UserId = user.Id
+            });
+
             await context.Users.AddAsync(user);
             await context.SaveChangesAsync();
             return user;
@@ -55,6 +67,14 @@ namespace MedievalGame.Infraestructure.Repositories
             }
 
             return null;
+        }
+
+        public IEnumerable<string> GetRolesAsync(Guid userId)
+        {
+            return context.Users
+                .Where(u => u.Id == userId)
+                .SelectMany(u => u.UserRoles.Select(ur => ur.Role.Name))
+                .ToList();
         }
     }
 }

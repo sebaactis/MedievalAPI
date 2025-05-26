@@ -20,6 +20,7 @@ public class CharactersController(IMediator mediator) : ControllerBase
 {
 
     [HttpGet]
+    
     public async Task<ActionResult<ApiResponse<List<CharacterDto>>>> GetCharacters()
     {
         var characters = await mediator.Send(new GetCharacterQuery());

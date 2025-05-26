@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MedievalGame.Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+80a1c051126fa30611d6d5d2561cda3fe899b843")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6bb5fce3b3458efc07be299a623889c4267b74fb")]
 [assembly: System.Reflection.AssemblyProductAttribute("MedievalGame.Tests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MedievalGame.Tests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

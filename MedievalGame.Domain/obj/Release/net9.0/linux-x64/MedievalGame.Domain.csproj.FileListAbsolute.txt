@@ -1,0 +1,12 @@
+D:\Descargas\Seba\Proyects\C#\MedievalGame\MedievalGame.Domain\bin\Release\net9.0\linux-x64\MedievalGame.Domain.deps.json
+D:\Descargas\Seba\Proyects\C#\MedievalGame\MedievalGame.Domain\bin\Release\net9.0\linux-x64\MedievalGame.Domain.dll
+D:\Descargas\Seba\Proyects\C#\MedievalGame\MedievalGame.Domain\bin\Release\net9.0\linux-x64\MedievalGame.Domain.pdb
+D:\Descargas\Seba\Proyects\C#\MedievalGame\MedievalGame.Domain\obj\Release\net9.0\linux-x64\MedievalGame.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\Descargas\Seba\Proyects\C#\MedievalGame\MedievalGame.Domain\obj\Release\net9.0\linux-x64\MedievalGame.Domain.AssemblyInfoInputs.cache
+D:\Descargas\Seba\Proyects\C#\MedievalGame\MedievalGame.Domain\obj\Release\net9.0\linux-x64\MedievalGame.Domain.AssemblyInfo.cs
+D:\Descargas\Seba\Proyects\C#\MedievalGame\MedievalGame.Domain\obj\Release\net9.0\linux-x64\MedievalGame.Domain.csproj.CoreCompileInputs.cache
+D:\Descargas\Seba\Proyects\C#\MedievalGame\MedievalGame.Domain\obj\Release\net9.0\linux-x64\MedievalGame.Domain.sourcelink.json
+D:\Descargas\Seba\Proyects\C#\MedievalGame\MedievalGame.Domain\obj\Release\net9.0\linux-x64\MedievalGame.Domain.dll
+D:\Descargas\Seba\Proyects\C#\MedievalGame\MedievalGame.Domain\obj\Release\net9.0\linux-x64\refint\MedievalGame.Domain.dll
+D:\Descargas\Seba\Proyects\C#\MedievalGame\MedievalGame.Domain\obj\Release\net9.0\linux-x64\MedievalGame.Domain.pdb
+D:\Descargas\Seba\Proyects\C#\MedievalGame\MedievalGame.Domain\obj\Release\net9.0\linux-x64\ref\MedievalGame.Domain.dll

@@ -1,0 +1,18 @@
+2025-05-26 16:27:47.779 -03:00 [INF] 📥 Request to GET /scalar/v1 / 📤 Response: 200 / 📦 Message: No message or invalid JSON
+2025-05-26 16:27:48.023 -03:00 [INF] 📥 Request to GET /scalar/scalar.aspnetcore.js / 📤 Response: 304 / 📦 Message: No message or invalid JSON
+2025-05-26 16:27:48.098 -03:00 [INF] 📥 Request to GET /scalar/scalar.js / 📤 Response: 304 / 📦 Message: No message or invalid JSON
+2025-05-26 16:27:48.492 -03:00 [INF] 📥 Request to GET /openapi/v1.json / 📤 Response: 200 / 📦 Message: No message or invalid JSON
+2025-05-26 16:27:49.116 -03:00 [INF] 📥 Request to GET /favicon.ico / 📤 Response: 404 / 📦 Message: No message or invalid JSON
+2025-05-26 16:27:57.677 -03:00 [INF] 📥 Request to GET /scalar/v1 / 📤 Response: 200 / 📦 Message: No message or invalid JSON
+2025-05-26 16:27:57.761 -03:00 [INF] 📥 Request to GET /scalar/scalar.aspnetcore.js / 📤 Response: 304 / 📦 Message: No message or invalid JSON
+2025-05-26 16:27:57.809 -03:00 [INF] 📥 Request to GET /scalar/scalar.js / 📤 Response: 304 / 📦 Message: No message or invalid JSON
+2025-05-26 16:27:57.946 -03:00 [INF] 📥 Request to GET /openapi/v1.json / 📤 Response: 200 / 📦 Message: No message or invalid JSON
+2025-05-26 19:02:53.074 -03:00 [INF] 📥 Request to GET /scalar/v1 / 📤 Response: 200 / 📦 Message: No message or invalid JSON
+2025-05-26 19:02:53.275 -03:00 [INF] 📥 Request to GET /scalar/scalar.aspnetcore.js / 📤 Response: 200 / 📦 Message: No message or invalid JSON
+2025-05-26 19:02:53.391 -03:00 [INF] 📥 Request to GET /scalar/scalar.js / 📤 Response: 200 / 📦 Message: No message or invalid JSON
+2025-05-26 19:02:53.829 -03:00 [INF] 📥 Request to GET /openapi/v1.json / 📤 Response: 200 / 📦 Message: No message or invalid JSON
+2025-05-26 19:02:54.403 -03:00 [INF] 📥 Request to GET /favicon.ico / 📤 Response: 404 / 📦 Message: No message or invalid JSON
+2025-05-26 19:05:20.891 -03:00 [INF] 📥 Request to POST /api/Auth/login / 📤 Response: 200 / 📦 Message: User login successfully
+2025-05-26 19:06:23.570 -03:00 [INF] 📥 Request to GET /api/Weapon / 📤 Response: 200 / 📦 Message: Weapons retrieved successfully
+2025-05-26 19:06:36.914 -03:00 [INF] 📥 Request to POST /api/Auth/register / 📤 Response: 200 / 📦 Message: User registered successfully
+2025-05-26 19:06:57.418 -03:00 [INF] 📥 Request to POST /api/Auth/login / 📤 Response: 200 / 📦 Message: User login successfully

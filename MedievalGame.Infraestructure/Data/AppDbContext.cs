@@ -16,6 +16,7 @@ namespace MedievalGame.Infraestructure.Data
         public DbSet<ItemAuditLog> ItemAuditLogs => Set<ItemAuditLog>();
         public DbSet<WeaponAuditLog> WeaponAuditLogs => Set<WeaponAuditLog>();
         public DbSet<User> Users => Set<User>();
+        public DbSet<Role> Roles => Set<Role>();
         public DbSet<UserAuditLog> UserAuditLogs => Set<UserAuditLog>();
 
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
@@ -33,6 +34,7 @@ namespace MedievalGame.Infraestructure.Data
             ConfigureCharacterClassModel(modelBuilder);
             ConfiguraItemTypeModel(modelBuilder);
             ConfiguraUserModel(modelBuilder);
+            ConfiguraUserRoleModel(modelBuilder);
         }
 
         private static void ConfiguraUserModel(ModelBuilder modelBuilder)
@@ -178,8 +180,33 @@ namespace MedievalGame.Infraestructure.Data
             });
         }
 
+        private static void ConfiguraUserRoleModel(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<UserRole>()
+                .HasKey(ur => new { ur.UserId, ur.RoleId });
+
+            modelBuilder.Entity<UserRole>()
+                .HasOne(ur => ur.User)
+                .WithMany(u => u.UserRoles)
+                .HasForeignKey(ur => ur.UserId);
+
+            modelBuilder.Entity<UserRole>()
+                .HasOne(ur => ur.Role)
+                .WithMany(r => r.UserRoles)
+                .HasForeignKey(ur => ur.RoleId);
+        }
+
         public void SeedData()
         {
+            if(!Roles.Any())
+            {
+                Roles.AddRange(new[]
+                {
+                    new Role { Id = Guid.NewGuid(), Name = "Admin", Description = "Administrator with full access" },
+                    new Role { Id = Guid.NewGuid(), Name = "User", Description = "Regular user with limited access" }
+                });
+            }
+
             if (!Rarities.Any())
             {
                 Rarities.AddRange(new[]

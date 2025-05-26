@@ -10,5 +10,6 @@ namespace MedievalGame.Domain.Interfaces
         Task<User> UpdateAsync(User user);
         Task<User> DeleteAsync(Guid id);
         Task<User> GetByUsernameAsync(string username);
+        IEnumerable<string> GetRolesAsync(Guid userId);
     }
 }

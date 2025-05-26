@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "R0PcESjG+nVNDUp1QzSuBJ8gm+6nu4Iko3eahNyBjUE=",
+  "Source": "MedievalGame.Api",
+  "BasePath": "_content/MedievalGame.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

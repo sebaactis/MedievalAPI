@@ -6,6 +6,6 @@
         public string Username { get; set; } = string.Empty;
         public string Password { get; set; } = string.Empty;
         public List<Character> Characters { get; set; } = new();
-
+        public ICollection<UserRole> UserRoles { get; set; } = new List<UserRole>();
     }
 }

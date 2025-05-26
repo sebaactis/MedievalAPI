@@ -234,6 +234,25 @@ namespace MedievalGame.Infraestructure.Migrations
                     b.ToTable("Rarities");
                 });
 
+            modelBuilder.Entity("MedievalGame.Domain.Entities.Role", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Roles");
+                });
+
             modelBuilder.Entity("MedievalGame.Domain.Entities.User", b =>
                 {
                     b.Property<Guid>("Id")
@@ -277,6 +296,21 @@ namespace MedievalGame.Infraestructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("UserAuditLogs");
+                });
+
+            modelBuilder.Entity("MedievalGame.Domain.Entities.UserRole", b =>
+                {
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("RoleId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("UserId", "RoleId");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("UserRole");
                 });
 
             modelBuilder.Entity("MedievalGame.Domain.Entities.Weapon", b =>
@@ -428,6 +462,25 @@ namespace MedievalGame.Infraestructure.Migrations
                     b.Navigation("Rarity");
                 });
 
+            modelBuilder.Entity("MedievalGame.Domain.Entities.UserRole", b =>
+                {
+                    b.HasOne("MedievalGame.Domain.Entities.Role", "Role")
+                        .WithMany("UserRoles")
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MedievalGame.Domain.Entities.User", "User")
+                        .WithMany("UserRoles")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Role");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("MedievalGame.Domain.Entities.Weapon", b =>
                 {
                     b.HasOne("MedievalGame.Domain.Entities.Rarity", "Rarity")
@@ -474,9 +527,16 @@ namespace MedievalGame.Infraestructure.Migrations
                     b.Navigation("Weapons");
                 });
 
+            modelBuilder.Entity("MedievalGame.Domain.Entities.Role", b =>
+                {
+                    b.Navigation("UserRoles");
+                });
+
             modelBuilder.Entity("MedievalGame.Domain.Entities.User", b =>
                 {
                     b.Navigation("Characters");
+
+                    b.Navigation("UserRoles");
                 });
 
             modelBuilder.Entity("MedievalGame.Domain.Entities.WeaponType", b =>

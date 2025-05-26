@@ -6,12 +6,14 @@ using MedievalGame.Application.Features.Weapons.Commands.UpdateWeapon;
 using MedievalGame.Application.Features.Weapons.Dtos;
 using MedievalGame.Application.Features.Weapons.Queries.GetWeaponById;
 using MedievalGame.Application.Features.Weapons.Queries.GetWeapons;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MedievalGame.Api.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize(Roles = "Admin")]
     public class WeaponController(IMediator mediator) : ControllerBase
     {
         [HttpPost]
